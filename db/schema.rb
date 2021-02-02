@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_150103) do
+ActiveRecord::Schema.define(version: 2021_02_02_151750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,26 @@ ActiveRecord::Schema.define(version: 2021_02_02_150103) do
     t.string "brand"
     t.integer "dealer_id"
     t.integer "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zipcode"
+    t.boolean "gradeschool"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "name"
+    t.integer "school_id"
+    t.boolean "college_graduate"
+    t.integer "salary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
