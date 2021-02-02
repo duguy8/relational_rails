@@ -10,7 +10,7 @@ class CreateSchool < ActiveRecord::Migration[5.2]
       t.datetime :created_at
       t.datetime :updated_at
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
