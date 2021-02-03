@@ -1,9 +1,15 @@
 <a href="/schools">School Index</a>
 
 <h1><%= @school.name %></h1>
-<p><%= @school.address %></p>
-<p><%= @school.city %></p>
-<p><%= @school.state %></p>
-<p><%= @school.zipcode %></p>
+<p><strong>Address: </strong><%= @school.address %></p>
+<p><strong>City: </strong><%= @school.city %></p>
+<p><strong>State: </strong><%= @school.state %></p>
+<p><strong>Zipcode: </strong><%= @school.zipcode %></p>
 
 <p><a href="/schools/<%= @school.id%>/edit">Update School</p>
+
+<form action="/schools/<%= @school.id %>" method="POST">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+   <input type="hidden" name="_method" value="DELETE">
+   <input type="submit" value="Delete School"/>
+</form>

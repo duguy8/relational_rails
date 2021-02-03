@@ -8,7 +8,6 @@ class SchoolsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -42,5 +41,10 @@ class SchoolsController < ApplicationController
       })
     school.save
     redirect_to "/schools/#{school.id}"
+  end
+
+  def destroy
+    School.destroy(params[:id])
+    redirect_to '/schools'
   end
 end
