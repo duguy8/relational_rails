@@ -1,0 +1,15 @@
+<form action="/dealers" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Create New Dealer: </h3>
+  <label>Name: </label>
+  <input type='text' name='dealer[name]'/><br/>
+  <label>Fully Staffed?: </label>
+  <input type= 'checkbox' name ='dealer[fully_staffed]'></input><br/>
+  <label>Monthly Gross: </label>
+  <input type='text' name='dealer[monthly_gross]'/><br/>
+  <label>City: </label>
+  <input type='text' name='dealer[city]'/><br/>
+  <label>State: </label>
+  <input type='text' name='dealer[state]'/><br/>
+  <input type='submit' value='Create Dealer'/>
+</form>

@@ -1,0 +1,17 @@
+<form action="/schools" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Create New School: </h3>
+  <label>Name: </label>
+  <input type='text' name='school[name]'/><br/>
+  <label>Address: </label>
+  <input type='school[address]'></input><br/>
+  <label>City: </label>
+  <input type='text' name='school[city]'/><br/>
+  <label>State: </label>
+  <input type='text' name='school[state]'/><br/>
+  <label>Zipcode: </label>
+  <input type='text' name='school[zipcode]'/><br/>
+  <label>Grade School?: </label>
+  <input type='checkbox' name='school[gradeschool]'/><br/>
+  <input type='submit' value='Create School'/>
+</form>
