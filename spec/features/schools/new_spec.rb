@@ -13,7 +13,7 @@ RSpec.describe 'As a visitor' do
       )
 
       visit '/schools'
-      # save_and_open_page
+      
       click_link "Create School"
       expect(current_path).to eq("/schools/new")
     end

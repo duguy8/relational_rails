@@ -6,8 +6,8 @@ class DealersController < ApplicationController
   def show
     @dealer = Dealer.find(params[:id])
   end
-  #
-  # def new
-  #
-  # end
+  
+  def new
+
+  end
 end
