@@ -22,7 +22,6 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(school_1.city)
       expect(page).to have_content(school_1.state)
       expect(page).to have_content(school_1.zipcode)
-      expect(page).to have_content(school_1.gradeschool)
     end
   end
 end

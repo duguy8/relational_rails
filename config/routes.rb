@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   #schools
   get '/schools', to: 'schools#index'
   get '/schools/new', to: 'schools#new'
+  post '/schools', to: 'schools#create'
   get '/schools/:id', to: 'schools#show'
+  get '/schools/:id/edit', to: 'schools#edit'
+  patch '/schools/:id', to: 'schools#update'
 
   #dealers
   get '/dealers', to: 'dealers#index'
