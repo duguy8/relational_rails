@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/schools/:id', to: 'schools#show'
 
   get '/dealers', to: 'dealers#index'
+  
+  get '/dealers/:id', to: 'dealers#show'
 end

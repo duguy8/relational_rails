@@ -10,7 +10,6 @@ RSpec.describe 'As a visitor' do
       )
 
       visit "/schools/#{school_1.id}"
-      # save_and_open_page
       expect(school_1.id).to eq 1
       expect(page).to have_content(school_1.city)
       expect(school_1.city).to eq 'Denver'
