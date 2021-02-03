@@ -9,8 +9,7 @@ RSpec.describe 'As a visitor' do
         fully_staffed: true,
         monthly_gross: 10000,
         city: 'Tampa',
-        created_at: "10-10-2020",
-        updated_at: "10-11-2020"
+        state: 'FL'
       )
       dealer2 = Dealer.create(
         id: 2,
@@ -29,8 +28,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(dealer1.fully_staffed)
       expect(page).to have_content(dealer1.monthly_gross)
       expect(page).to have_content(dealer1.city)
-      expect(page).to have_content(dealer1.created_at)
-      expect(page).to have_content(dealer1.updated_at)
+      expect(page).to have_content(dealer1.state)
     end
   end
 end

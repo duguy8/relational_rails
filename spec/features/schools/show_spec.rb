@@ -10,13 +10,11 @@ RSpec.describe 'As a visitor' do
         city: 'Denver',
         state: 'CO',
         zipcode: '80223',
-        gradeschool: false,
-        created_at: "10-10-2013",
-        updated_at: "2-2-2021"
+        gradeschool: false
       )
 
       visit "/schools/#{school_1.id}"
-      
+
       expect(school_1.id).to eq 1
       expect(school_1.city).to eq 'Denver'
       expect(page).to have_content(school_1.name)
@@ -25,8 +23,6 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(school_1.state)
       expect(page).to have_content(school_1.zipcode)
       expect(page).to have_content(school_1.gradeschool)
-      expect(page).to have_content(school_1.created_at)
-      expect(page).to have_content(school_1.updated_at)
     end
   end
 end

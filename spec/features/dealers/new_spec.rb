@@ -9,8 +9,7 @@ RSpec.describe 'As a visitor' do
         fully_staffed: true,
         monthly_gross: 10000,
         city: 'Tampa',
-        created_at: "10-10-2020",
-        updated_at: "10-11-2020"
+        state: 'FL'
       )
       dealer2 = Dealer.create(
         id: 2,
@@ -22,7 +21,7 @@ RSpec.describe 'As a visitor' do
       )
 
       visit '/dealers'
-      
+
       click_link "Create Dealer"
       expect(current_path).to eq("/dealers/new")
     end
