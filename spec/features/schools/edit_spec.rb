@@ -14,7 +14,9 @@ RSpec.describe 'As a visitor' do
       )
 
       visit "/schools/#{school_1.id}"
-      expect(page).should have_submit_button('Update School')
+      expect(page).to have_link('Update School')
+      click_link 'Update School'
+      expect(current_path).to eq("/schools/#{school_1.id}/edit")
     end
   end
 end

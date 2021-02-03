@@ -25,4 +25,8 @@ class SchoolsController < ApplicationController
 
     redirect_to '/schools'
   end
+
+  def edit
+    @school = School.find(params[:id])
+  end
 end
