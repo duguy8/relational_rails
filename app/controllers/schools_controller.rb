@@ -8,6 +8,21 @@ class SchoolsController < ApplicationController
   end
 
   def new
-    
+
+  end
+
+  def create
+    school = School.new({
+      name: params[:school][:name],
+      address: params[:school][:address],
+      city: params[:school][:city],
+      state: params[:school][:state],
+      zipcode: params[:school][:zipcode],
+      gradeschool: params[:school][:gradeschool]
+      })
+
+    school.save
+
+    redirect_to '/schools'
   end
 end

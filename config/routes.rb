@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/schools', to: 'schools#index'
   get '/schools/new', to: 'schools#new'
   get '/schools/:id', to: 'schools#show'
+  post '/schools', to: 'schools#create'
 
   #dealers
   get '/dealers', to: 'dealers#index'
