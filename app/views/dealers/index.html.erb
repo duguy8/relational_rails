@@ -1,0 +1,7 @@
+<h1>All Dealers</h1>
+
+<!-- <h3><a href="/dealers/new">Create Dealer</a></h3> -->
+
+<% @dealers.each do |dealer| %>
+  <h5><a href="/dealers/<%= dealer.id %>"><%= dealer.name %></a></h5>
+<% end %>

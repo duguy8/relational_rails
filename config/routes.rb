@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/schools', to: 'schools#index'
   get '/schools/new', to: 'schools#new'
   get '/schools/:id', to: 'schools#show'
+
+  get '/dealers', to: 'dealers#index'
 end

@@ -18,9 +18,9 @@ RSpec.describe 'As a visitor' do
 
       visit '/dealers'
       # save_and_open_page
-      expect(page).to have_content(school_1.name)
-      expect(page).to have_content(school_2.name)
-      expect(page).to have_content(school_3.name)
+      expect(page).to have_content(dealer1.name)
+      expect(page).to have_content(dealer2.name)
+      expect(page).to have_content(dealer3.name)
     end
   end
 end
