@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   #instruments
   get '/instruments', to: 'instruments#index'
   get '/instruments/:id', to: 'instruments#show'
+  get '/instruments/:id/edit', to: 'instruments#edit'
+  patch '/instruments/:id', to: 'instruments#update'
 end

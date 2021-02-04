@@ -14,14 +14,13 @@ RSpec.describe 'As a visitor' do
       guitar1 = Instrument.create(
         id: 1,
         name: "Cyclops",
-        on_sale: false,
+        on_sale: true,
         brand: "Dunable",
         dealer_id: 1,
         price: 4000
       )
 
       visit "/instruments/#{dealer1.id}"
-      save_and_open_page
       expect(page).to have_content(guitar1.name)
       expect(page).to have_content(guitar1.on_sale)
       expect(page).to have_content(guitar1.brand)
