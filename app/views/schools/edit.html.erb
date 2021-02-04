@@ -13,6 +13,6 @@
   <label>Zipcode: </label>
   <input type='text' name='school[zipcode]' value="<%= @school.zipcode %>"/><br/>
   <label>Grade School?: </label>
-  <input type='checkbox' name='school[gradeschool]' value="<%= @school.gradeschool %>"/><br/>
+  <input type='checkbox' name='school[gradeschool]' <%= @school.gradeschool ? 'checked' : '' %>/><br/>
   <input type='submit' value='Update School'/>
 </form>
