@@ -1,0 +1,16 @@
+<form action="/dealers/<%= @dealer.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <label>Name: </label>
+  <input type='text' name='dealer[name]' value="<%= @dealer.name %>"/><br/>
+  <label>Fully Staffed?: </label>
+  <input type='checkbox' name='dealer[fully_staffed]' value="<%= @dealer.fully_staffed %>"/><br/>
+  <label>Monthly Gross: </label>
+  <input type='text' name='dealer[monthly_gross]' value="<%= @dealer.monthly_gross %>"/><br/>
+  <label>City: </label>
+  <input type='text' name='dealer[city]' value="<%= @dealer.city %>"/><br/>
+  <label>State: </label>
+  <input type='text' name='dealer[state]' value="<%= @dealer.state %>"/><br/>
+  <input type='submit' value='Update Dealer'/>
+</form>

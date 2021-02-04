@@ -30,5 +30,25 @@ RSpec.describe 'As a visitor' do
       click_link "Update Dealer"
       expect(current_path).to eq("/dealers/#{dealer1.id}/edit")
     end
+
+    it 'When I fill out the form and submit the Dealer is updated' do
+      dealer1 = Dealer.create(
+        id: 1,
+        name: 'Guitar Center',
+        fully_staffed: true,
+        monthly_gross: 10000,
+        city: 'Tampa',
+        state: 'FL'
+      )
+
+      visit "/dealers/#{dealer1.id}"
+      expect(page).to have_link("Update Dealer")
+      click_link "Update Dealer"
+      expect(current_path).to eq("/dealers/#{dealer1.id}/edit")
+      fill_in "dealer[name]", :with => 'Sam Ash'
+      click_button 'Update Dealer'
+      expect(current_path).to eq("/dealers/#{dealer1.id}")
+      expect(page).to have_content("Sam Ash")
+    end
   end
 end
