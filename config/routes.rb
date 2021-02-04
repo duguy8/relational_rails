@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   patch '/schools/:id', to: 'schools#update'
   delete '/schools/:id', to: 'schools#destroy'
 
+  #teachers
+
   #dealers
   get '/dealers', to: 'dealers#index'
   get '/dealers/new', to: 'dealers#new'
@@ -21,4 +23,8 @@ Rails.application.routes.draw do
   get '/dealers/:id/edit', to: 'dealers#edit'
   patch '/dealers/:id', to: 'dealers#update'
   delete '/dealers/:id', to: 'dealers#destroy'
+
+  #instruments
+  get '/instruments', to: 'instruments#index'
+  get 'dealers/:id/instruments', to: 'instruments#dealer'
 end
