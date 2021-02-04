@@ -1,0 +1,10 @@
+<h1><%= @dealer.name %></h1>
+
+<h3><strong>All Inventory</strong></h3>
+
+<% @instruments.each do |instrument| %>
+  <p><strong>Name: </strong><%= instrument.name %></p>
+  <p><strong>On Sale?: </strong><%= instrument.on_sale %></p>
+  <p><strong>Brand: </strong><%= instrument.brand %></p>
+  <p><strong>Price: </strong><%= instrument.price %></p>
+<% end %>

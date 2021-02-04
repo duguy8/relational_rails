@@ -3,6 +3,11 @@ class DealersController < ApplicationController
     @dealers = Dealer.all
   end
 
+  def instruments
+    @dealer = Dealer.find(params[:id])
+    @instruments = @dealer.instruments
+  end
+
   def show
     @dealer = Dealer.find(params[:id])
   end
