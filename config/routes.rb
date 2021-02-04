@@ -27,4 +27,5 @@ Rails.application.routes.draw do
 
   #instruments
   get '/instruments', to: 'instruments#index'
+  get '/instruments/:id', to: 'instruments#show'
 end
