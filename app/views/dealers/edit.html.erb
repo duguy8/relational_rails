@@ -5,7 +5,7 @@
   <label>Name: </label>
   <input type='text' name='dealer[name]' value="<%= @dealer.name %>"/><br/>
   <label>Fully Staffed?: </label>
-  <input type='checkbox' name='dealer[fully_staffed]' value="<%= @dealer.fully_staffed %>"/><br/>
+  <input type='checkbox' name='dealer[fully_staffed]' <%= @dealer.fully_staffed ? 'checked' : '' %>/><br/>
   <label>Monthly Gross: </label>
   <input type='text' name='dealer[monthly_gross]' value="<%= @dealer.monthly_gross %>"/><br/>
   <label>City: </label>
