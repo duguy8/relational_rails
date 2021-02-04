@@ -1,7 +1,9 @@
 <a href="/dealers">Dealer Index</a>
 
 <h1><%= @dealer.name %></h1>
-<p><%= @dealer.fully_staffed %></p>
-<p><%= @dealer.monthly_gross %></p>
-<p><%= @dealer.city %></p>
-<p><%= @dealer.state %></p>
+<p><strong>Fully Staffed?: </strong><%= @dealer.fully_staffed %></p>
+<p><strong>Monthly Gross: </strong><%= @dealer.monthly_gross %></p>
+<p><strong>City: </strong><%= @dealer.city %></p>
+<p><strong>State: </strong><%= @dealer.state %></p>
+
+<p><a href="/dealers/<%=@dealer.id%>/edit">Update Dealer</p>
