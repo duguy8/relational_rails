@@ -25,7 +25,7 @@ RSpec.describe 'As a visitor' do
       expect(dealer1.id).to eq 1
       expect(dealer1.city).to eq 'Tampa'
       expect(page).to have_content(dealer1.name)
-      expect(page).to have_content(dealer1.fully_staffed)
+      expect(dealer1.fully_staffed).to be true
       expect(page).to have_content(dealer1.monthly_gross)
       expect(page).to have_content(dealer1.city)
       expect(page).to have_content(dealer1.state)

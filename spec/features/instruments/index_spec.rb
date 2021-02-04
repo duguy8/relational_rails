@@ -45,7 +45,6 @@ RSpec.describe 'As a visitor' do
       )
 
       visit "/dealers/#{dealer1.id}/instruments"
-      save_and_open_page
       expect(page).to have_content(guitar.name)
       expect(page).to have_content(guitar.on_sale)
       expect(page).to have_content(guitar.brand)

@@ -3,3 +3,7 @@
 <p><strong>On Sale?: </strong><%= @instrument.on_sale %></p>
 <p><strong>Brand: </strong><%= @instrument.brand %></p>
 <p><strong>Price: </strong><%= @instrument.price %></p>
+
+<p><%= link_to "Update Instrument", "/instruments/#{@instrument.id}/edit" %></p>
+
+<p><%= link_to "Delete Instrument", "/instruments/#{@instrument.id}", method: :delete %></p>

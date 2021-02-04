@@ -25,7 +25,6 @@ class DealersController < ApplicationController
       })
 
       dealer.save
-
       redirect_to '/dealers'
   end
 
@@ -48,9 +47,6 @@ class DealersController < ApplicationController
   end
 
   def destroy
-    # require "pry"; binding.pry
-    # Dealer.destroy(params[:id])
-
     dealer = Dealer.find(params[:id])
     dealer.destroy
 
