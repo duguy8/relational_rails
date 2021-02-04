@@ -8,3 +8,5 @@
   <p><strong>Brand: </strong><%= instrument.brand %></p>
   <p><strong>Price: </strong><%= instrument.price %></p>
 <% end %>
+
+<p><%= link_to "Create Instrument", "/dealers/#{@dealer.id}/instruments/new" %></p>
