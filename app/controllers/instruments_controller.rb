@@ -23,4 +23,11 @@ class InstrumentsController < ApplicationController
     instrument.save
     redirect_to "/instruments/#{instrument.id}"
   end
+
+  def destroy
+    instrument = Instrument.find(params[:id])
+    instrument.destroy
+
+    redirect_to '/instruments'
+  end
 end

@@ -51,8 +51,3 @@ RSpec.describe 'As a visitor' do
     end
   end
 end
-
-
-
-
-# Then a 'DELETE' request is sent to '/child_table_name/:id',
