@@ -52,4 +52,21 @@ class DealersController < ApplicationController
 
     redirect_to '/dealers'
   end
+
+  def new_instrument
+    @dealer = Dealer.find(params[:id])
+  end
+
+  def create_instrument
+    dealer = Dealer.find(params[:id])
+    instruments = dealer.instruments
+    new = instruments.create!(
+      name: params[:instrument][:name],
+      on_sale: params[:instrument][:on_sale],
+      brand: params[:instrument][:brand],
+      price: params[:instrument][:price]
+    )
+    new.save
+    redirect_to "/dealers/#{dealer.id}/instruments"
+  end
 end

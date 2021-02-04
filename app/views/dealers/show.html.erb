@@ -6,6 +6,8 @@
 <p><strong>City: </strong><%= @dealer.city %></p>
 <p><strong>State: </strong><%= @dealer.state %></p>
 
+<p><%= link_to "Instruments", "/dealers/#{@dealer.id}/instruments" %></p>
+
 <p><a href="/dealers/<%=@dealer.id%>/edit">Update Dealer</p>
 
 <p><%= link_to "Delete Dealer", "/dealers/#{@dealer.id}", method: :delete %></p>

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   patch '/dealers/:id', to: 'dealers#update'
   delete '/dealers/:id', to: 'dealers#destroy'
   get 'dealers/:id/instruments', to: 'dealers#instruments'
+  get 'dealers/:id/instruments/new', to: 'dealers#new_instrument'
+  patch 'dealers/:id/instruments', to: 'dealers#create_instrument'
 
   #instruments
   get '/instruments', to: 'instruments#index'
