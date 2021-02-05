@@ -4,7 +4,7 @@
 
 <% @teachers.each do |teacher| %>
   <p><strong>Name: </strong><%= teacher.name %></p>
-  <p><strong>College Graduate?: </strong><%= teacher.college_graduate %></p>
+  <p><strong>College Graduate?: </strong><%= teacher.college_graduate ? 'Yes' : 'No' %></p>
   <p><strong>Salary: </strong><%= teacher.salary %></p>
 <% end %>
 

@@ -5,6 +5,7 @@
 <p><strong>City: </strong><%= @school.city %></p>
 <p><strong>State: </strong><%= @school.state %></p>
 <p><strong>Zipcode: </strong><%= @school.zipcode %></p>
+<p><strong>Grade School?: </strong><%= @school.gradeschool ? 'Yes' : 'No' %></p>
 
 <p><%= link_to "Teachers", "/schools/#{@school.id}/teachers" %></p>
 
