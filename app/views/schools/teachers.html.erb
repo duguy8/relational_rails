@@ -1,0 +1,11 @@
+<h1><%= @school.name %></h1>
+
+<h3><strong>All Teachers</strong></h3>
+
+<% @teachers.each do |teacher| %>
+  <p><strong>Name: </strong><%= teacher.name %></p>
+  <p><strong>College Graduate?: </strong><%= teacher.college_graduate ? 'Yes' : 'No' %></p>
+  <p><strong>Salary: </strong><%= teacher.salary %></p>
+<% end %>
+
+<p><%= link_to "Create Teacher", "/schools/#{@school.id}/teachers/new" %></p>

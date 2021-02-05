@@ -1,7 +1,8 @@
 <h1>All Schools</h1>
 
-<h3><a href="/schools/new">Create School</a></h3>
+<h4><a href="/schools/new">Create School</a></h4>
 
 <% @schools.each do |school| %>
-  <h5><a href="/schools/<%= school.id %>"><%= school.name %></a></h5>
+  <h3><a href="/schools/<%= school.id %>"><%= school.name %></a></h3>
+  <h5>Created: <%= school.created_at %></h5>
 <% end %>

@@ -12,8 +12,16 @@ Rails.application.routes.draw do
   get '/schools/:id/edit', to: 'schools#edit'
   patch '/schools/:id', to: 'schools#update'
   delete '/schools/:id', to: 'schools#destroy'
+  get 'schools/:id/teachers', to: 'schools#teachers'
+  get 'schools/:id/teachers/new', to: 'schools#new_teacher'
+  patch 'schools/:id/teachers', to: 'schools#create_teacher'
 
   #teachers
+  get '/teachers', to: 'teachers#index'
+  get '/teachers/:id', to: 'teachers#show'
+  get '/teachers/:id/edit', to: 'teachers#edit'
+  patch '/teachers/:id', to: 'teachers#update'
+  delete '/teachers/:id', to: 'teachers#destroy'
 
   #dealers
   get '/dealers', to: 'dealers#index'
