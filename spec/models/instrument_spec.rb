@@ -35,5 +35,17 @@ RSpec.describe Instrument, type: :model do
         expect(expected[1].price).to eq(500)
         expect(expected[2].price).to eq(7500)
       end
+
+      it 'Orders by name' do
+        dealer = create(:dealer, id: 1)
+        guitar1 = create(:instrument, dealer_id: 1, name: "A")
+        guitar2 = create(:instrument, dealer_id: 1, name: "C")
+        guitar3 = create(:instrument, dealer_id: 1, name: "B")
+
+        instruments = Instrument.all.order_by_name
+        expected = [guitar1, guitar3, guitar2]
+
+        expect(instruments).to eq(expected)
+      end
     end
 end

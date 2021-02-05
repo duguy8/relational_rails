@@ -3,10 +3,12 @@
 <h3><strong>All Inventory</strong></h3>
 
 <%= form_tag("/dealers/#{@dealer.id}/instruments", method: "get") do %>
-  <%= label_tag(:q, "Filter by Price - Greater Than:") %>
-  <%= text_field_tag(:q) %>
+  <%= label_tag(:amount, "Filter by Price - Greater Than:") %>
+  <%= text_field_tag(:amount) %>
   <%= submit_tag("Find Instruments") %>
 <% end %>
+
+<p><%= link_to "Sort Instruments by Name", "/dealers/#{@dealer.id}/instruments?param1=sort" %></p>
 
 <p><%= link_to "Clear Filter", "/dealers/#{@dealer.id}/instruments" %></p>
 

@@ -15,7 +15,7 @@ RSpec.describe Dealer, type: :model do
         dealer2 = create(:dealer, created_at: "11-01-1990")
         dealer3 = create(:dealer, created_at: "01-01-2020")
 
-        dealers = dealers = Dealer.all
+        dealers = Dealer.all
         expected = [dealer3, dealer2, dealer1]
 
         expect(dealers.order_by).to eq(expected)
