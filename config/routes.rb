@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   patch '/dealers/:id', to: 'dealers#update'
   delete '/dealers/:id', to: 'dealers#destroy'
   get '/dealers/:id/instruments', to: 'dealers#instruments'
-  post '/dealers/:id/instruments', to: 'dealers#filter_price'
   get '/dealers/:id/instruments/new', to: 'dealers#new_instrument'
   patch '/dealers/:id/instruments', to: 'dealers#create_instrument'
 

@@ -1,19 +1,16 @@
 class DealersController < ApplicationController
   def index
-    @dealers = Dealer.all.order(created_at: :desc)
+    @dealers = Dealer.all.order_by
   end
 
   def instruments
     @dealer = Dealer.find(params[:id])
-    @instruments = @dealer.instruments
-  end
-
-  def filter_price
-    dealer = Dealer.find(params[:id])
-    amount = params[:q].to_i
-    dealer.instruments.where('price > ?', amount)
-
-    redirect_to "/dealers/#{dealer.id}/instruments"
+    if params[:q].nil?
+      @instruments = @dealer.instruments
+    else
+      amount = params[:q].to_i
+      @instruments = @dealer.instruments.filter_price(amount)
+    end
   end
 
   def show

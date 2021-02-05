@@ -65,5 +65,3 @@ RSpec.describe 'As a visitor' do
     end
   end
 end
-# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
-# Then I am brought back to the current index page with only the records that meet that threshold shown.
