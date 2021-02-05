@@ -11,14 +11,6 @@ RSpec.describe 'As a visitor' do
         city: 'Tampa',
         state: 'FL'
       )
-      dealer2 = Dealer.create(
-        id: 2,
-        name: 'Sam Ash'
-      )
-      dealer3 = Dealer.create(
-        id: 3,
-        name: 'Pianos n stuff'
-      )
 
       visit "/dealers/#{dealer1.id}"
 
