@@ -1,6 +1,6 @@
 class DealersController < ApplicationController
   def index
-    @dealers = Dealer.all
+    @dealers = Dealer.all.order(created_at: :desc)
   end
 
   def instruments
