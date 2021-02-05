@@ -8,6 +8,8 @@
   <%= submit_tag("Find Instruments") %>
 <% end %>
 
+<p><%= link_to "Clear Filter", "/dealers/#{@dealer.id}/instruments" %></p>
+
 <% @instruments.each do |instrument| %>
   <p><strong>Name: </strong><%= instrument.name %></p>
   <p><strong>On Sale?: </strong><%= instrument.on_sale %></p>
