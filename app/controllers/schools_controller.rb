@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
   def index
-    @schools = School.all
+    @schools = School.all.order(created_at: :desc)
   end
 
   def teachers
@@ -10,6 +10,7 @@ class SchoolsController < ApplicationController
 
   def show
     @school = School.find(params[:id])
+    @teachers = @school.teachers.count
   end
 
   def new

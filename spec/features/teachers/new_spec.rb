@@ -3,39 +3,7 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe "When I visit a School's Teacher Index page" do
     it "Has a link to add a new adoptable teacher for that School Create Teacher" do
-      school_1 = School.create(
-        id: 1,
-        name: 'Turing',
-        address: '111 whatever st',
-        city: 'Denver',
-        state: 'CO',
-        zipcode: '80223',
-        gradeschool: false
-      )
-
-      teacher_1 = Teacher.create(
-        id: 1,
-        school_id: 1,
-        name: "Mike",
-        college_graduate: true,
-        salary: 80000
-      )
-
-      teacher_2 = Teacher.create(
-        id: 2,
-        school_id: 1,
-        name: "Bob",
-        college_graduate: true,
-        salary: 70000
-      )
-
-      teacher_3 = Teacher.create(
-        id: 3,
-        school_id: 1,
-        name: "Megan",
-        college_graduate: true,
-        salary: 60000
-      )
+      school_1 = create(:school)
 
       visit "/schools/#{school_1.id}/teachers"
 
@@ -44,39 +12,7 @@ RSpec.describe 'As a visitor' do
     end
 
     it 'Takes us ".../teachers/new" Where there is a form for a new teacher' do
-      school_1 = School.create(
-        id: 1,
-        name: 'Turing',
-        address: '111 whatever st',
-        city: 'Denver',
-        state: 'CO',
-        zipcode: '80223',
-        gradeschool: false
-      )
-
-      teacher_1 = Teacher.create(
-        id: 1,
-        school_id: 1,
-        name: "Mike",
-        college_graduate: true,
-        salary: 70000
-      )
-
-      teacher_2 = Teacher.create(
-        id: 2,
-        school_id: 1,
-        name: "Bob",
-        college_graduate: true,
-        salary: 70000
-      )
-
-      teacher_3 = Teacher.create(
-        id: 3,
-        school_id: 1,
-        name: "Megan",
-        college_graduate: true,
-        salary: 60000
-      )
+      school_1 = create(:school)
 
       visit "/schools/#{school_1.id}/teachers"
       click_link 'Create Teacher'
@@ -87,15 +23,7 @@ RSpec.describe 'As a visitor' do
 
   describe 'A post request is sent, a new teacher is created for the school' do
     it 'Takes us to the Schools Teacher Page with the new one listed' do
-      school_1 = School.create(
-        id: 1,
-        name: 'Turing',
-        address: '111 whatever st',
-        city: 'Denver',
-        state: 'CO',
-        zipcode: '80223',
-        gradeschool: false
-      )
+      school_1 = create(:school)
 
       visit "/schools/#{school_1.id}/teachers"
       click_link 'Create Teacher'

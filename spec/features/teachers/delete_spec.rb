@@ -3,49 +3,17 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'When I vist "/teachers/:id"' do
     it 'Should have a link to Delete Teacher' do
-      school_1 = School.create(
-        id: 1,
-        name: 'Turing',
-        address: '111 whatever st',
-        city: 'Denver',
-        state: 'CO',
-        zipcode: '80223',
-        gradeschool: false
-      )
+      teacher_1 = create(:teacher)
 
-      teacher_1 = Teacher.create(
-        id: 1,
-        school_id: 1,
-        name: "Mike",
-        college_graduate: true,
-        salary: 70000
-      )
-
-      visit "/teachers/#{school_1.id}"
+      visit "/teachers/#{teacher_1.id}"
       expect(page).to have_link("Delete Teacher")
     end
   end
   describe "When I click the link" do
     it "Teacher is deleted and redirected to Teacher index page" do
-      school_1 = School.create(
-        id: 1,
-        name: 'Turing',
-        address: '111 whatever st',
-        city: 'Denver',
-        state: 'CO',
-        zipcode: '80223',
-        gradeschool: false
-      )
+      teacher_1 = create(:teacher)
 
-      teacher_1 = Teacher.create(
-        id: 1,
-        school_id: 1,
-        name: "Mike",
-        college_graduate: true,
-        salary: 70000
-      )
-
-      visit "/teachers/#{school_1.id}"
+      visit "/teachers/#{teacher_1.id}"
       expect(page).to have_link("Delete Teacher")
       click_link "Delete Teacher"
       expect(current_path).to eq('/teachers')

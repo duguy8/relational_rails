@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
   describe 'When I visit "/schools/:id"' do
-    it 'I see a school with that id with its attributes' do
+    it 'I see a school with its attributes' do
       school_1 = School.create(
         id: 1,
         name: 'Turing',
@@ -22,6 +22,17 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(school_1.city)
       expect(page).to have_content(school_1.state)
       expect(page).to have_content(school_1.zipcode)
+    end
+
+    it 'Shows a count of the number of teachers for this school' do
+      school = create(:school, id: 1)
+      teacher_1 = create(:teacher, school_id: 1)
+      teacher_2 = create(:teacher, school_id: 1)
+      teacher_3 = create(:teacher, school_id: 1)
+      teacher_4 = create(:teacher, school_id: 1)
+      
+      visit "/schools/#{school.id}"
+      expect(page).to have_content("4 teachers employed at #{school.name}!")
     end
   end
 end
