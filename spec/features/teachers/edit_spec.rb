@@ -4,6 +4,7 @@ RSpec.describe 'As a visitor' do
   describe 'When I visit "/teachers/:id"' do
     it 'I see a link to update the Teacher titled Update Teacher' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
@@ -26,6 +27,7 @@ RSpec.describe 'As a visitor' do
   describe "After clicking the link" do
     it "Takes us to '/teachers/:id/edit' where theres a form to edit" do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
@@ -49,6 +51,7 @@ RSpec.describe 'As a visitor' do
   describe "On Teachers Edit page there is a form and when submitting" do
     it "Sends patch request to '/teachers/:id', redirected to teacher show page" do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',

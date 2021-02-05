@@ -3,6 +3,11 @@ class SchoolsController < ApplicationController
     @schools = School.all
   end
 
+  def teachers
+    @school = School.find(params[:id])
+    @teachers = @school.teachers
+  end
+
   def show
     @school = School.find(params[:id])
   end
@@ -21,7 +26,6 @@ class SchoolsController < ApplicationController
       })
 
     school.save
-
     redirect_to '/schools'
   end
 
@@ -39,6 +43,7 @@ class SchoolsController < ApplicationController
       zipcode: params[:school][:zipcode],
       gradeschool: params[:school][:gradeschool]
       })
+
     school.save
     redirect_to "/schools/#{school.id}"
   end
@@ -46,5 +51,22 @@ class SchoolsController < ApplicationController
   def destroy
     School.destroy(params[:id])
     redirect_to '/schools'
+  end
+
+  def new_teacher
+    @school = School.find(params[:id])
+  end
+
+  def create_teacher
+    school = School.find(params[:id])
+    teachers = school.teachers
+    new_teacher = teachers.create!(
+      name: params[:teacher][:name],
+      college_graduate: params[:teacher][:college_graduate],
+      salary: params[:teacher][:salary]
+    )
+
+    new_teacher.save
+    redirect_to "/schools/#{school.id}/teachers"
   end
 end

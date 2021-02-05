@@ -1,0 +1,12 @@
+<form action="/teachers/<%= @teacher.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <label>Name: </label>
+    <input type='text' name='teacher[name]' value="<%= @teacher.name %>"/><br/>
+  <label>College Graduate?: </label>
+    <input type='checkbox' name='teacher[college_graduate]' <%= @teacher.college_graduate ? 'checked' : '' %>/><br/>
+  <label>Salary: </label>
+    <input type='text' name='teacher[salary]' value="<%= @teacher.salary %>"/><br/>
+    <input type='submit' value='Update Teacher'/>
+</form>

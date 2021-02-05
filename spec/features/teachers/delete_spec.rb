@@ -4,6 +4,7 @@ RSpec.describe 'As a visitor' do
   describe 'When I vist "/teachers/:id"' do
     it 'Should have a link to Delete Teacher' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
@@ -26,6 +27,7 @@ RSpec.describe 'As a visitor' do
   describe "When I click the link" do
     it "Teacher is deleted and redirected to Teacher index page" do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',

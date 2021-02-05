@@ -4,6 +4,7 @@ RSpec.describe 'As a visitor' do
   describe "When I visit a School's Teacher Index page" do
     it "Has a link to add a new adoptable teacher for that School Create Teacher" do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
@@ -41,6 +42,7 @@ RSpec.describe 'As a visitor' do
 
     it 'Takes us ".../teachers/new" Where there is a form for a new teacher' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
@@ -80,6 +82,7 @@ RSpec.describe 'As a visitor' do
   describe 'A post request is sent, a new teacher is created for the school' do
     it 'Takes us to the Schools Teacher Page with the new one listed' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',

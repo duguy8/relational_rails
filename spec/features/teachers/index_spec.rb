@@ -4,6 +4,7 @@ RSpec.describe 'As a visitor' do
   describe 'When I vist "/teachers"' do
     it 'Should list every teacher and its attributes' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
@@ -28,6 +29,7 @@ RSpec.describe 'As a visitor' do
   describe 'When I visit "/schools/:school.id/teachers"' do
     it 'Shows each teacher that is associated with its school' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',

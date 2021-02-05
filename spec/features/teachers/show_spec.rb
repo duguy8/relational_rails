@@ -4,6 +4,7 @@ RSpec.describe 'As a visitor' do
   describe 'When I vist "/teachers/:id"' do
     it 'Should have the teacher with that id and its attributes' do
       school_1 = School.create(
+        id: 1,
         name: 'Turing',
         address: '111 whatever st',
         city: 'Denver',
