@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   def index
-    @teachers = Teacher.all.where(college_graduate: true)
+    @teachers = Teacher.all.college_graduates
   end
 
   def show

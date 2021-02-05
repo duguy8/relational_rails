@@ -4,10 +4,8 @@ class DealersController < ApplicationController
   end
 
   def instruments
-    # require "pry"; binding.pry
     @dealer = Dealer.find(params[:id])
     if !params[:param1].nil?
-      # require "pry"; binding.pry
       @instruments = @dealer.instruments.order_by_name
     elsif params[:amount].nil?
       @instruments = @dealer.instruments

@@ -1,11 +1,18 @@
 class SchoolsController < ApplicationController
   def index
-    @schools = School.all.order(created_at: :desc)
+    @schools = School.all.order_by_created_at
   end
 
   def teachers
     @school = School.find(params[:id])
-    @teachers = @school.teachers
+    if !params[:sort].nil?
+      @teachers = @school.teachers.order_by_name
+    elsif params[:amount].nil?
+      @teachers = @school.teachers
+    else
+      amount = params[:amount].to_i
+      @teachers = @school.teachers.filter_salary(amount)
+    end
   end
 
   def show
