@@ -1,6 +1,6 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.all
+    @instruments = Instrument.where(on_sale: true)
   end
 
   def show

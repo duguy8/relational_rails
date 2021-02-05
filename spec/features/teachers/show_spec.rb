@@ -17,13 +17,13 @@ RSpec.describe 'As a visitor' do
         id: 1,
         school_id: 1,
         name: "Mike",
-        college_graduate: true,
+        college_graduate: false,
         salary: 70000
       )
 
       visit "/teachers/#{school_1.id}"
       expect(page).to have_content(teacher_1.name)
-      expect(page).to have_content(teacher_1.college_graduate)
+      expect(teacher_1.college_graduate).to be_falsey
       expect(page).to have_content(teacher_1.salary)
     end
   end

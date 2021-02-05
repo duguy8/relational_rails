@@ -23,7 +23,7 @@ RSpec.describe 'As a visitor' do
 
       visit '/teachers'
       expect(page).to have_content(teacher_1.name)
-      expect(page).to have_content(teacher_1.college_graduate)
+      expect(teacher_1.college_graduate).to be_truthy
       expect(page).to have_content(teacher_1.salary)
     end
   end
@@ -49,7 +49,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/schools/#{school_1.id}/teachers"
       expect(page).to have_content(teacher_1.name)
-      expect(page).to have_content(teacher_1.college_graduate)
+      expect(teacher_1.college_graduate).to be_truthy
       expect(page).to have_content(teacher_1.salary)
     end
   end

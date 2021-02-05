@@ -6,6 +6,7 @@ RSpec.describe 'As a visitor' do
 
       visit '/schools'
       click_link "Create School"
+      fill_in 'school[name]', :with => 'Great School'
       expect(current_path).to eq("/schools/new")
       fill_in 'school[name]', :with => 'Great School'
       click_button 'Create School'

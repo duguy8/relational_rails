@@ -7,17 +7,9 @@ RSpec.describe 'As a visitor' do
         id: 1,
         name: 'Guitar Center',
         fully_staffed: true,
-        monthly_gross: 10000,
+        sq_ft: 8000,
         city: 'Tampa',
         state: 'FL'
-      )
-      dealer2 = Dealer.create(
-        id: 2,
-        name: 'Sam Ash'
-      )
-      dealer3 = Dealer.create(
-        id: 3,
-        name: 'Pianos n stuff'
       )
 
       visit "/dealers/#{dealer1.id}"
@@ -26,9 +18,20 @@ RSpec.describe 'As a visitor' do
       expect(dealer1.city).to eq 'Tampa'
       expect(page).to have_content(dealer1.name)
       expect(dealer1.fully_staffed).to be true
-      expect(page).to have_content(dealer1.monthly_gross)
+      expect(page).to have_content(dealer1.sq_ft)
       expect(page).to have_content(dealer1.city)
       expect(page).to have_content(dealer1.state)
+    end
+
+    it 'Shows a count of the number of instruments for this dealer' do
+      dealer = create(:dealer, id: 1)
+      guitar = create(:instrument, dealer_id: 1)
+      drums = create(:instrument, dealer_id: 1)
+      bass = create(:instrument, dealer_id: 1)
+      microphone = create(:instrument, dealer_id: 1)
+
+      visit "/dealers/#{dealer.id}"
+      expect(page).to have_content("4 Instruments in Stock!")
     end
   end
 end
