@@ -5,7 +5,7 @@ class SchoolsController < ApplicationController
 
   def teachers
     @school = School.find(params[:id])
-    if !params[:param1].nil?
+    if !params[:sort].nil?
       @teachers = @school.teachers.order_by_name
     elsif params[:amount].nil?
       @teachers = @school.teachers
