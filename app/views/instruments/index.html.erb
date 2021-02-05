@@ -1,8 +1,7 @@
 <h1>All Instruments</h1>
 
 <% @instruments.each do |instrument| %>
-  <h5><%= instrument.name %></h5>
-  <h5><%= instrument.on_sale %></h5>
-  <h5><%= instrument.brand %></h5>
-  <h5><%= instrument.price %></h5>
+  <h4><%= instrument.name %></h4>
+  <h5>Make: <%= instrument.brand %></h5>
+  <h5>Price: <%= instrument.price %></h5>
 <%end%>
