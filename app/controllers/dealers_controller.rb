@@ -10,6 +10,7 @@ class DealersController < ApplicationController
 
   def show
     @dealer = Dealer.find(params[:id])
+    @instruments = @dealer.instruments.count
   end
 
   def new

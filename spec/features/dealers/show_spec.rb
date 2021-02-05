@@ -22,5 +22,16 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(dealer1.city)
       expect(page).to have_content(dealer1.state)
     end
+
+    it 'Shows a count of the number of instruments for this dealer' do
+      dealer = create(:dealer, id: 1)
+      guitar = create(:instrument, dealer_id: 1)
+      drums = create(:instrument, dealer_id: 1)
+      bass = create(:instrument, dealer_id: 1)
+      microphone = create(:instrument, dealer_id: 1)
+
+      visit "/dealers/#{dealer.id}"
+      expect(page).to have_content("4 Instruments in Stock!")
+    end
   end
 end
