@@ -1,11 +1,20 @@
 class DealersController < ApplicationController
   def index
-    @dealers = Dealer.all.order(created_at: :desc)
+    @dealers = Dealer.all.order_by
   end
 
   def instruments
+    # require "pry"; binding.pry
     @dealer = Dealer.find(params[:id])
-    @instruments = @dealer.instruments
+    if !params[:param1].nil?
+      # require "pry"; binding.pry
+      @instruments = @dealer.instruments.order_by_name
+    elsif params[:amount].nil?
+      @instruments = @dealer.instruments
+    else
+      amount = params[:amount].to_i
+      @instruments = @dealer.instruments.filter_price(amount)
+    end
   end
 
   def show

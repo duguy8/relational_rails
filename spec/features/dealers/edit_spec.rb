@@ -24,7 +24,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_link("Update Dealer")
       click_link "Update Dealer"
       expect(current_path).to eq("/dealers/#{dealer1.id}/edit")
-      
+
       fill_in "dealer[name]", :with => 'Sam Ash'
       click_button 'Update Dealer'
       expect(current_path).to eq("/dealers/#{dealer1.id}")

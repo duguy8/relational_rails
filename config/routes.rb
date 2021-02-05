@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get '/schools/:id/edit', to: 'schools#edit'
   patch '/schools/:id', to: 'schools#update'
   delete '/schools/:id', to: 'schools#destroy'
-  get 'schools/:id/teachers', to: 'schools#teachers'
-  get 'schools/:id/teachers/new', to: 'schools#new_teacher'
-  patch 'schools/:id/teachers', to: 'schools#create_teacher'
+  get '/schools/:id/teachers', to: 'schools#teachers'
+  get '/schools/:id/teachers/new', to: 'schools#new_teacher'
+  patch '/schools/:id/teachers', to: 'schools#create_teacher'
 
   #teachers
   get '/teachers', to: 'teachers#index'
@@ -31,9 +31,9 @@ Rails.application.routes.draw do
   get '/dealers/:id/edit', to: 'dealers#edit'
   patch '/dealers/:id', to: 'dealers#update'
   delete '/dealers/:id', to: 'dealers#destroy'
-  get 'dealers/:id/instruments', to: 'dealers#instruments'
-  get 'dealers/:id/instruments/new', to: 'dealers#new_instrument'
-  patch 'dealers/:id/instruments', to: 'dealers#create_instrument'
+  get '/dealers/:id/instruments', to: 'dealers#instruments'
+  get '/dealers/:id/instruments/new', to: 'dealers#new_instrument'
+  patch '/dealers/:id/instruments', to: 'dealers#create_instrument'
 
   #instruments
   get '/instruments', to: 'instruments#index'
