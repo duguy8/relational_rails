@@ -8,6 +8,14 @@ class DealersController < ApplicationController
     @instruments = @dealer.instruments
   end
 
+  def filter_price
+    dealer = Dealer.find(params[:id])
+    amount = params[:q].to_i
+    dealer.instruments.where('price > ?', amount)
+
+    redirect_to "/dealers/#{dealer.id}/instruments"
+  end
+
   def show
     @dealer = Dealer.find(params[:id])
     @instruments = @dealer.instruments.count

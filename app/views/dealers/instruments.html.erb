@@ -2,6 +2,12 @@
 
 <h3><strong>All Inventory</strong></h3>
 
+<%= form_tag("/dealers/#{@dealer.id}/instruments", method: "post") do %>
+  <%= label_tag(:q, "Filter by Price - Greater Than:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Find Instruments") %>
+<% end %>
+
 <% @instruments.each do |instrument| %>
   <p><strong>Name: </strong><%= instrument.name %></p>
   <p><strong>On Sale?: </strong><%= instrument.on_sale %></p>
