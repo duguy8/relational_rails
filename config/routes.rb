@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   #welcome page
   get '/', to: 'welcome#index'
-
+  
   #schools
   get '/schools', to: 'schools#index'
   get '/schools/new', to: 'schools#new'
