@@ -7,7 +7,7 @@ RSpec.describe 'As a visitor' do
         id: 1,
         name: 'Guitar Center',
         fully_staffed: true,
-        monthly_gross: 10000,
+        sq_ft: 8000,
         city: 'Tampa',
         state: 'FL'
       )
@@ -18,7 +18,7 @@ RSpec.describe 'As a visitor' do
       expect(dealer1.city).to eq 'Tampa'
       expect(page).to have_content(dealer1.name)
       expect(dealer1.fully_staffed).to be true
-      expect(page).to have_content(dealer1.monthly_gross)
+      expect(page).to have_content(dealer1.sq_ft)
       expect(page).to have_content(dealer1.city)
       expect(page).to have_content(dealer1.state)
     end

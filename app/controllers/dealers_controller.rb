@@ -20,7 +20,7 @@ class DealersController < ApplicationController
     dealer = Dealer.new({
       name: params[:dealer][:name],
       fully_staffed: params[:dealer][:fully_staffed],
-      monthly_gross: params[:dealer][:monthly_gross],
+      sq_ft: params[:dealer][:sq_ft],
       city: params[:dealer][:city],
       state: params[:dealer][:state]
       })
@@ -38,7 +38,7 @@ class DealersController < ApplicationController
     dealer.update({
       name: params[:dealer][:name],
       fully_staffed: params[:dealer][:fully_staffed],
-      monthly_gross: params[:dealer][:monthly_gross],
+      sq_ft: params[:dealer][:sq_ft],
       city: params[:dealer][:city],
       state: params[:dealer][:state]
       })
