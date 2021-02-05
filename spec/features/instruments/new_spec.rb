@@ -41,7 +41,7 @@ RSpec.describe 'As a visitor' do
       visit "/dealers/#{dealer1.id}/instruments"
 
       expect(current_path).to eq("/dealers/#{dealer1.id}/instruments")
-      expect(page). to have_link('Create Instrument')
+      expect(page).to have_link('Create Instrument')
     end
 
     it 'Takes us ".../instruments/new" Where there is a form for a new instrument' do

@@ -11,6 +11,7 @@ RSpec.describe 'As a visitor' do
           city: 'Tampa',
           state: 'FL'
         )
+
       guitar1 = Instrument.create(
         name: "Cyclops",
         on_sale: false,
@@ -18,6 +19,7 @@ RSpec.describe 'As a visitor' do
         dealer_id: 1,
         price: 4000
       )
+      
       visit '/instruments'
       expect(page).to have_content(guitar1.name)
       expect(page).to have_content(guitar1.on_sale)

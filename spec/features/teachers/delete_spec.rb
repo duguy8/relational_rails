@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
-  describe 'When I vist "/teachers"' do
-    it 'Should list every teacher and its attributes' do
+  describe 'When I vist "/teachers/:id"' do
+    it 'Should have a link to Delete Teacher' do
       school_1 = School.create(
         name: 'Turing',
         address: '111 whatever st',
@@ -19,14 +19,12 @@ RSpec.describe 'As a visitor' do
         salary: 70000
       )
 
-      visit '/teachers'
-      expect(page).to have_content(teacher_1.name)
-      expect(page).to have_content(teacher_1.college_graduate)
-      expect(page).to have_content(teacher_1.salary)
+      visit "/teachers/#{teacher_1.school_id}"
+      expect(page).to have_link("Delete Teacher")
     end
   end
-  describe 'When I visit "/schools/:school.id/teachers"' do
-    it 'Shows each teacher that is associated with its school' do
+  describe "When I click the link" do
+    it "Teacher is deleted and redirected to Teacher index page" do
       school_1 = School.create(
         name: 'Turing',
         address: '111 whatever st',
@@ -43,10 +41,10 @@ RSpec.describe 'As a visitor' do
         salary: 70000
       )
 
-      visit "/schools/#{school_1.id}/teachers"
-      expect(page).to have_content(teacher_1.name)
-      expect(page).to have_content(teacher_1.college_graduate)
-      expect(page).to have_content(teacher_1.salary)
+      visit "/instruments/#{school_1.id}"
+      click_link "Delete Teacher"
+      expect(current_path).to eq('/instruments')
+      expect(page).not_to have_content(teacher_1.name)
     end
   end
 end

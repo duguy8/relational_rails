@@ -79,11 +79,3 @@ RSpec.describe 'As a visitor' do
     end
   end
 end
-
-
-
-
-# When I click the button to submit the form "Update Child"
-# Then a `PATCH` request is sent to '/child_table_name/:id',
-# the child's data is updated,
-# and I am redirected to the Child Show page where I see the Child's updated information
