@@ -6,6 +6,8 @@
 <p><strong>State: </strong><%= @school.state %></p>
 <p><strong>Zipcode: </strong><%= @school.zipcode %></p>
 
-<p><a href="/schools/<%= @school.id%>/edit">Update School</p>
+<p><%= link_to "Teachers", "/schools/#{@school.id}/teachers" %></p>
+
+<p><%= link_to "Update School", "/schools/#{@school.id}/edit", method: :update %></p>
 
 <p><%= link_to "Delete School", "/schools/#{@school.id}", method: :delete %></p>
