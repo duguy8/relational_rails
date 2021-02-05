@@ -14,6 +14,7 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_1 = Teacher.create(
+        id: 1,
         school_id: 1,
         name: "Mike",
         college_graduate: true,
@@ -21,6 +22,7 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_2 = Teacher.create(
+        id: 2,
         school_id: 1,
         name: "Bob",
         college_graduate: true,
@@ -28,6 +30,7 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_3 = Teacher.create(
+        id: 3,
         school_id: 1,
         name: "Megan",
         college_graduate: true,
@@ -52,6 +55,7 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_1 = Teacher.create(
+        id: 1,
         school_id: 1,
         name: "Mike",
         college_graduate: true,
@@ -59,6 +63,7 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_2 = Teacher.create(
+        id: 2,
         school_id: 1,
         name: "Bob",
         college_graduate: true,
@@ -66,6 +71,7 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_3 = Teacher.create(
+        id: 3,
         school_id: 1,
         name: "Megan",
         college_graduate: true,

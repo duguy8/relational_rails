@@ -14,13 +14,14 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_1 = Teacher.create(
+        id: 1,
         school_id: 1,
         name: "Mike",
         college_graduate: true,
         salary: 70000
       )
 
-      visit "/teachers/#{teacher_1.school_id}"
+      visit "/teachers/#{school_1.id}"
       expect(page).to have_content(teacher_1.name)
       expect(page).to have_content(teacher_1.college_graduate)
       expect(page).to have_content(teacher_1.salary)

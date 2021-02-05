@@ -14,13 +14,14 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_1 = Teacher.create(
+        id: 1,
         school_id: 1,
         name: "Mike",
         college_graduate: true,
         salary: 70000
       )
 
-      visit "/teachers/#{teacher_1.school_id}"
+      visit "/teachers/#{school_1.id}"
       expect(page).to have_link("Delete Teacher")
     end
   end
@@ -37,15 +38,17 @@ RSpec.describe 'As a visitor' do
       )
 
       teacher_1 = Teacher.create(
+        id: 1,
         school_id: 1,
         name: "Mike",
         college_graduate: true,
         salary: 70000
       )
 
-      visit "/instruments/#{school_1.id}"
+      visit "/teachers/#{school_1.id}"
+      expect(page).to have_link("Delete Teacher")
       click_link "Delete Teacher"
-      expect(current_path).to eq('/instruments')
+      expect(current_path).to eq('/teachers')
       expect(page).not_to have_content(teacher_1.name)
     end
   end
