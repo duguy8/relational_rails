@@ -2,7 +2,7 @@
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
 <%= form_with url: "/instruments" do |form| %>
-<p><%= form.text_field "Name", value: "Enter Instrument Name" %></p>
+<p><%= form.text_field :name, value: "Enter Instrument Name" %></p>
 <%= form.submit "Search" %>
 <% end %>
 

@@ -14,7 +14,8 @@ RSpec.describe 'As a visitor' do
     #   dealer3 = create(:dealer, name: "Underwater Emporium")
     #
     #   visit "/dealers"
-    #   fill_in "Name", :with => "Underwater Emporium"
+    #   # save_and_open_page
+    #   fill_in "Name", :with => "Underwater"
     #   click_button("Search")
     #   expect(current_path).to eq("/dealers")
     #   expect(page).to have_content(dealer3.name)

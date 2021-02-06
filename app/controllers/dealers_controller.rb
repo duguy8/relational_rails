@@ -26,8 +26,8 @@ class DealersController < ApplicationController
   def create
     dealer = Dealer.new(dealer_params)
 
-      dealer.save
-      redirect_to '/dealers'
+    dealer.save
+    redirect_to "/dealers"
   end
 
   def edit
@@ -52,7 +52,7 @@ class DealersController < ApplicationController
     dealer = Dealer.find(params[:id])
     dealer.destroy
 
-    redirect_to '/dealers'
+    redirect_to "/dealers"
   end
 
   def new_instrument
@@ -68,6 +68,10 @@ class DealersController < ApplicationController
   end
 
   private
+
+  def search_params
+    params.permit("Name")
+  end
 
   def dealer_params
     params.permit(:name, :fully_staffed, :sq_ft, :city, :state)
