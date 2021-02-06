@@ -62,12 +62,7 @@ class DealersController < ApplicationController
   def create_instrument
     dealer = Dealer.find(params[:id])
     instruments = dealer.instruments
-    new = instruments.create!(
-      name: params[:instrument][:name],
-      on_sale: params[:instrument][:on_sale],
-      brand: params[:instrument][:brand],
-      price: params[:instrument][:price]
-    )
+    new = instruments.create!(instrument_params)
     new.save
     redirect_to "/dealers/#{dealer.id}/instruments"
   end
@@ -76,5 +71,9 @@ class DealersController < ApplicationController
 
   def dealer_params
     params.permit(:name, :fully_staffed, :sq_ft, :city, :state)
+  end
+
+  def instrument_params
+    params.permit(:name, :on_sale, :brand, :price)
   end
 end
