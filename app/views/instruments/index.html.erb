@@ -1,6 +1,11 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
+<%= form_with url: "/instruments" do |form| %>
+<p><%= form.text_field "Name", value: "Enter Instrument Name" %></p>
+<%= form.submit "Search" %>
+<% end %>
+
 <h1>All Instruments</h1>
 
 <% @instruments.each do |instrument| %>
