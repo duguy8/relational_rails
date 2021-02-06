@@ -11,6 +11,8 @@
 
 <h3><%= @instruments %> Instruments in Stock!</h3>
 
+<h3><%= link_to "#{@dealer.name} All Instruments in Stock", "/dealers/#{@dealer.id}/instruments" %></h3>
+
 <p><%= link_to "Instruments", "/dealers/#{@dealer.id}/instruments" %></p>
 
 <p><a href="/dealers/<%=@dealer.id%>/edit">Update Dealer</p>
