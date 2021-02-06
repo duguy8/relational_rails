@@ -1,5 +1,8 @@
 FactoryBot.define do
   factory :dealer do
+    # name { "Guitar Center" }
+    # city { "Tampa" }
+    # state { "FL" }
     sequence :name do |n|
       "Guitar Center #{n}"
     end

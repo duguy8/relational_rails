@@ -45,6 +45,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'launchy'
   gem 'orderly'
+  gem 'faker'
 end
 
 group :development do
