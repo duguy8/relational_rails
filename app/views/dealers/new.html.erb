@@ -1,18 +1,18 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<form action="/dealers" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h3>Create New Dealer: </h3>
-  <label>Name: </label>
-  <input type='text' name='dealer[name]'/><br/>
-  <label>Fully Staffed?: </label>
-  <input type= 'checkbox' name ='dealer[fully_staffed]'></input><br/>
-  <label>Sq Ft: </label>
-  <input type='text' name='dealer[sq_ft]'/><br/>
-  <label>City: </label>
-  <input type='text' name='dealer[city]'/><br/>
-  <label>State: </label>
-  <input type='text' name='dealer[state]'/><br/>
-  <input type='submit' value='Create Dealer'/>
-</form>
+<%= form_with url: '/dealers' do |form|%>
+  <h3><%= form.label "Create New Dealer:" %></h3>
+  <p><%= form.label "Name: " %></p>
+  <p><%= form.text_field :name %></p><br>
+  <p><%= form.label "Fully Staffed?: " %></p>
+  <p><%= form.check_box :fully_staffed %></p><br>
+  <p><%= form.label "Sq Ft: " %></p>
+  <p><%= form.text_field :sq_ft %></p><br>
+  <p><%= form.label "City: " %></p>
+  <p><%= form.text_field :city %></p><br>
+  <p><%= form.label "State: " %></p>
+  <p><%= form.text_field :state %></p><br>
+
+  <%= form.submit "Create Dealer" %>
+<% end %>

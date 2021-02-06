@@ -24,13 +24,7 @@ class DealersController < ApplicationController
   end
 
   def create
-    dealer = Dealer.new({
-      name: params[:dealer][:name],
-      fully_staffed: params[:dealer][:fully_staffed],
-      sq_ft: params[:dealer][:sq_ft],
-      city: params[:dealer][:city],
-      state: params[:dealer][:state]
-      })
+    dealer = Dealer.new(dealer_params)
 
       dealer.save
       redirect_to '/dealers'
@@ -76,5 +70,11 @@ class DealersController < ApplicationController
     )
     new.save
     redirect_to "/dealers/#{dealer.id}/instruments"
+  end
+
+  private
+
+  def dealer_params
+    params.permit(:name, :fully_staffed, :sq_ft, :city, :state)
   end
 end

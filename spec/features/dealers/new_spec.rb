@@ -6,7 +6,7 @@ RSpec.describe 'As a visitor' do
 
       visit '/dealers'
       click_link "Create Dealer"
-      fill_in 'dealer[name]', :with => 'Sweet Shop'
+      fill_in 'name', :with => 'Sweet Shop'
       expect(current_path).to eq("/dealers/new")
       click_button "Create Dealer"
       expect(Dealer.all.count).to eq 1
