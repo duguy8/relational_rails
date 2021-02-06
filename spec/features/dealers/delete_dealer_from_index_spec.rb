@@ -14,10 +14,9 @@ RSpec.describe 'As a visitor' do
 
     it 'Deletes Dealer when Delete Dealer is clicked' do
       dealer1 = create(:dealer, name: "Amazing Instrumentz")
-      
+
       visit "/dealers"
       click_link("Delete Dealer")
-      save_and_open_page
       expect(current_path).to eq("/dealers")
       expect(page).not_to have_content(dealer1.name)
       end

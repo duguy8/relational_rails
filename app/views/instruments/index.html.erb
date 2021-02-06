@@ -4,4 +4,5 @@
   <h4><%= instrument.name %></h4>
   <h5>Make: <%= instrument.brand %></h5>
   <h5>Price: <%= instrument.price %></h5>
+<p><%= link_to "Update Instrument", "/instruments/#{instrument.id}/edit" %></p>
 <%end%>

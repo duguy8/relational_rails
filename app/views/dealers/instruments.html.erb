@@ -17,6 +17,7 @@
   <p><strong>On Sale?: </strong><%= instrument.on_sale %></p>
   <p><strong>Brand: </strong><%= instrument.brand %></p>
   <p><strong>Price: </strong><%= instrument.price %></p>
+  <p><%= link_to "Update Instrument", "/instruments/#{instrument.id}/edit" %></p>
 <% end %>
 
 <p><%= link_to "Create Instrument", "/dealers/#{@dealer.id}/instruments/new" %></p>
