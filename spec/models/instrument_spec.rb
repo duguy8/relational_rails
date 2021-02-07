@@ -47,5 +47,17 @@ RSpec.describe Instrument, type: :model do
 
         expect(instruments).to eq(expected)
       end
+
+      it 'Can search by name' do
+        dealer = create(:dealer, id: 1)
+        guitar1 = create(:instrument, dealer_id: 1, name: "A")
+        guitar2 = create(:instrument, dealer_id: 1, name: "C")
+        guitar3 = create(:instrument, dealer_id: 1, name: "B")
+
+        guitar = Instrument.search("B")
+        expected = [guitar3]
+
+        expect(guitar).to eq(expected)
+      end
     end
 end

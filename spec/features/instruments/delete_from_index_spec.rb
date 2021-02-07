@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'See a link to delete next to each Instrument' do
     it 'Has link on Instrument Index page' do
-    dealer = create(:dealer, id: 1)
-    guitar = create(:instrument, on_sale: true, name: "Wowza")
+      dealer = create(:dealer, id: 1)
+      guitar = create(:instrument, on_sale: true, name: "Wowza")
 
-    visit "/instruments"
-    expect(page).to have_content(guitar.name)
-    expect(page).to have_link("Delete Instrument")
-
+      visit "/instruments"
+      expect(page).to have_content(guitar.name)
+      expect(page).to have_link("Delete Instrument")
     end
 
     it 'Has link on Dealer Instrument Index' do

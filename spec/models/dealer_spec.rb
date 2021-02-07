@@ -17,8 +17,21 @@ RSpec.describe Dealer, type: :model do
 
         dealers = Dealer.all
         expected = [dealer3, dealer2, dealer1]
-
         expect(dealers.order_by).to eq(expected)
+      end
+
+      it 'Search finds a dealer by name' do
+        dealer1 = create(:dealer, name: "A Store")
+        dealer2 = create(:dealer, name: "B Store")
+        dealer3 = create(:dealer, name: "Super Center")
+
+        dealers = Dealer.all
+        expected = [dealer1]
+        bad1 = [dealer2]
+        bad2 = [dealer3]
+        expect(dealers.search("A Store")).to eq(expected)
+        expect(dealers.search("A Store")).to_not eq(bad1)
+        expect(dealers.search("A Store")).to_not eq(bad2)
       end
     end
 end

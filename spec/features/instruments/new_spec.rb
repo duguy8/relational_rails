@@ -31,7 +31,6 @@ RSpec.describe 'As a visitor' do
       fill_in "brand", :with => "Wow"
       check "on_sale"
       click_button 'Create Instrument'
-
       expect(current_path).to eq("/dealers/#{dealer1.id}/instruments")
       expect(page).to have_content("Sweet New Instrument")
       expect(page).to have_content("Wow")

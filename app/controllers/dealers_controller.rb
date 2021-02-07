@@ -1,6 +1,6 @@
 class DealersController < ApplicationController
   def index
-    @dealers = Dealer.all.order_by
+    @dealers = Dealer.search(params[:search]).order_by
   end
 
   def instruments
@@ -69,12 +69,8 @@ class DealersController < ApplicationController
 
   private
 
-  def search_params
-    params.permit("Name")
-  end
-
   def dealer_params
-    params.permit(:name, :fully_staffed, :sq_ft, :city, :state)
+    params.permit(:name, :fully_staffed, :sq_ft, :city, :state, :search)
   end
 
   def instrument_params

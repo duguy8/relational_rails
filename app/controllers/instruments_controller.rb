@@ -1,6 +1,6 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.all_on_sale
+    @instruments = Instrument.search(params[:search]).all_on_sale
   end
 
   def show

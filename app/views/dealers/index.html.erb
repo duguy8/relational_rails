@@ -1,9 +1,10 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<%= form_with url: "/dealers" do |form| %>
-<p><%= form.text_field "Name", value: "Enter Dealer Name" %></p>
-<%= form.submit "Search" %>
+<h4>Search for Dealer by Name</h4>
+  <%= form_tag("/dealers", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
 <% end %>
 
 <h1>All Dealers</h1>
