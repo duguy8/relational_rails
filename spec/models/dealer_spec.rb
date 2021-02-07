@@ -33,5 +33,17 @@ RSpec.describe Dealer, type: :model do
         expect(dealers.search("A Store")).to_not eq(bad1)
         expect(dealers.search("A Store")).to_not eq(bad2)
       end
+
+      it 'Sorts by number of instruments' do
+        dealer1 = create(:dealer, id: 1)
+        dealer2 = create(:dealer, id: 2)
+        dealer3 = create(:dealer, id: 3)
+        guitars = create_list(:instrument, 6, dealer_id: 1, on_sale: true)
+        drumsets = create_list(:instrument, 4, dealer_id: 2, on_sale: true)
+        basses = create_list(:instrument, 9, dealer_id: 3, on_sale: true)
+
+        expected = [dealer3, dealer1, dealer2]
+        expect(Dealer.sort_by_instruments).to eq(expected)
+      end
     end
 end

@@ -1,6 +1,6 @@
 class Instrument < ApplicationRecord
   validates_presence_of :brand
-  belongs_to :dealer
+  belongs_to :dealer, counter_cache: true
 
   def self.search(input)
     if input
