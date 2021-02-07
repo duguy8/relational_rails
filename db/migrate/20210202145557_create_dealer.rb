@@ -5,8 +5,6 @@ class CreateDealer < ActiveRecord::Migration[5.2]
       t.boolean :fully_staffed
       t.integer :monthly_gross
       t.string :city
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end

@@ -6,8 +6,6 @@ class CreateInstrument < ActiveRecord::Migration[5.2]
       t.string :brand
       t.integer :dealer_id
       t.integer :price
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end
