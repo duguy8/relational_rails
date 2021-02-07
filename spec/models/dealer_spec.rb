@@ -45,5 +45,17 @@ RSpec.describe Dealer, type: :model do
         expected = [dealer3, dealer1, dealer2]
         expect(Dealer.sort_by_instruments).to eq(expected)
       end
+
+      it 'Search finds a dealer by partial name' do
+        dealer1 = create(:dealer, name: "A Store")
+        dealer2 = create(:dealer, name: "B Store")
+        dealer3 = create(:dealer, name: "Super Center b")
+
+        dealers = Dealer.all
+        expected = [dealer2, dealer3]
+        bad = [dealer1]
+        expect(dealers.partial_search("b")).to eq(expected)
+        expect(dealers.partial_search("b")).to_not eq(bad)
+      end
     end
 end

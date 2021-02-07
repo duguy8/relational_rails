@@ -27,6 +27,9 @@ RSpec.describe 'As a visitor' do
       expect(dealer3.name).to appear_before(dealer1.name)
       expect(dealer1.name).to appear_before(dealer2.name)
       expect(dealer3.name).to appear_before(dealer2.name)
+      expect(page).to have_content(dealer1.instruments_count)
+      expect(page).to have_content(dealer2.instruments_count)
+      expect(page).to have_content(dealer3.instruments_count)
     end
   end
 end

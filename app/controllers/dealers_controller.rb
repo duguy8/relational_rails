@@ -2,8 +2,11 @@ class DealersController < ApplicationController
   def index
     if params[:param1] == "sort"
       @dealers = Dealer.sort_by_instruments
+    elsif params[:search]
+      @dealers = Dealer.search(params[:search])
+      @dealers = Dealer.partial_search(params[:search])
     else
-      @dealers = Dealer.search(params[:search]).order_by
+      @dealers = Dealer.order_by
     end
   end
 

@@ -6,11 +6,13 @@ class Dealer < ApplicationRecord
     order(instruments_count: :desc)
   end
 
+  def self.partial_search(input)
+    where("name ILIKE ?", "%#{input}%")
+  end
+
   def self.search(input)
     if input
        where(name: input)
-     else
-       Dealer.all
     end
   end
 
