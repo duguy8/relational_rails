@@ -54,7 +54,6 @@ RSpec.describe 'As a visitor' do
       guitar2 = create(:instrument, price: 50, dealer_id: 1)
       guitar3 = create(:instrument, price: 3000, dealer_id: 1)
 
-
       visit "/dealers/#{dealer1.id}/instruments"
       fill_in ("Filter by Price - Greater Than:"), :with => "100"
       click_button("Find Instruments")

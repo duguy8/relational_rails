@@ -27,10 +27,10 @@ RSpec.describe 'As a visitor' do
 
       visit "/dealers/#{dealer1.id}/instruments"
       click_link 'Create Instrument'
-      fill_in "instrument[name]", :with => "Sweet New Instrument"
-      fill_in "instrument[brand]", :with => "Wow"
+      fill_in "name", :with => "Sweet New Instrument"
+      fill_in "brand", :with => "Wow"
+      check "on_sale"
       click_button 'Create Instrument'
-
       expect(current_path).to eq("/dealers/#{dealer1.id}/instruments")
       expect(page).to have_content("Sweet New Instrument")
       expect(page).to have_content("Wow")

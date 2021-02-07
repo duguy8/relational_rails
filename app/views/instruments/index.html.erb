@@ -1,7 +1,18 @@
+<p><%= link_to "View All Dealers", "/dealers" %></p>
+<p><%= link_to "View All Instruments", "/instruments" %></p>
+
+<h4>Search for Instrument by Name</h4>
+  <%= form_tag("/instruments", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h1>All Instruments</h1>
 
 <% @instruments.each do |instrument| %>
   <h4><%= instrument.name %></h4>
   <h5>Make: <%= instrument.brand %></h5>
   <h5>Price: <%= instrument.price %></h5>
+  <p><%= link_to "Update Instrument", "/instruments/#{instrument.id}/edit" %></p>
+  <p><%= link_to "Delete Instrument", "/instruments/#{instrument.id}", method: :delete %></p>
 <%end%>

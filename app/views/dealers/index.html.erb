@@ -1,8 +1,21 @@
+<p><%= link_to "View All Dealers", "/dealers" %></p>
+<p><%= link_to "View All Instruments", "/instruments" %></p>
+<p><%= link_to "See Dealers by Number of Instruments in Stock", "/dealers?param1=sort" %></p>
+
+<h4>Search for Dealer by Name</h4>
+  <%= form_tag("/dealers", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h1>All Dealers</h1>
 
 <h4><a href="/dealers/new">Create Dealer</a></h4>
 
 <% @dealers.each do |dealer| %>
   <h3><a href="/dealers/<%= dealer.id %>"><%= dealer.name %></a></h3>
+  <h5>Instruments in Stock: <%= dealer.instruments_count %></h5>
   <h5>Created: <%= dealer.created_at %></h5>
+  <p><%= link_to "Update Dealer", "/dealers/#{dealer.id}/edit" %></p>
+  <p><%= link_to "Delete Dealer", "/dealers/#{dealer.id}", method: :delete %></p>
 <% end %>

@@ -1,6 +1,13 @@
 class DealersController < ApplicationController
   def index
-    @dealers = Dealer.all.order_by
+    if params[:param1] == "sort"
+      @dealers = Dealer.sort_by_instruments
+    elsif params[:search]
+      @dealers = Dealer.search(params[:search])
+      @dealers = Dealer.partial_search(params[:search])
+    else
+      @dealers = Dealer.order_by
+    end
   end
 
   def instruments
@@ -24,16 +31,10 @@ class DealersController < ApplicationController
   end
 
   def create
-    dealer = Dealer.new({
-      name: params[:dealer][:name],
-      fully_staffed: params[:dealer][:fully_staffed],
-      sq_ft: params[:dealer][:sq_ft],
-      city: params[:dealer][:city],
-      state: params[:dealer][:state]
-      })
+    dealer = Dealer.new(dealer_params)
 
-      dealer.save
-      redirect_to '/dealers'
+    dealer.save
+    redirect_to "/dealers"
   end
 
   def edit
@@ -58,7 +59,7 @@ class DealersController < ApplicationController
     dealer = Dealer.find(params[:id])
     dealer.destroy
 
-    redirect_to '/dealers'
+    redirect_to "/dealers"
   end
 
   def new_instrument
@@ -68,13 +69,18 @@ class DealersController < ApplicationController
   def create_instrument
     dealer = Dealer.find(params[:id])
     instruments = dealer.instruments
-    new = instruments.create!(
-      name: params[:instrument][:name],
-      on_sale: params[:instrument][:on_sale],
-      brand: params[:instrument][:brand],
-      price: params[:instrument][:price]
-    )
+    new = instruments.create!(instrument_params)
     new.save
     redirect_to "/dealers/#{dealer.id}/instruments"
+  end
+
+  private
+
+  def dealer_params
+    params.permit(:name, :fully_staffed, :sq_ft, :city, :state, :search)
+  end
+
+  def instrument_params
+    params.permit(:name, :on_sale, :brand, :price)
   end
 end

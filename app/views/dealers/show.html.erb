@@ -1,3 +1,6 @@
+<p><%= link_to "View All Dealers", "/dealers" %></p>
+<p><%= link_to "View All Instruments", "/instruments" %></p>
+
 <a href="/dealers">Dealer Index</a>
 
 <h1><%= @dealer.name %></h1>
@@ -7,6 +10,8 @@
 <p><strong>State: </strong><%= @dealer.state %></p>
 
 <h3><%= @instruments %> Instruments in Stock!</h3>
+
+<h3><%= link_to "#{@dealer.name} All Instruments in Stock", "/dealers/#{@dealer.id}/instruments" %></h3>
 
 <p><%= link_to "Instruments", "/dealers/#{@dealer.id}/instruments" %></p>
 

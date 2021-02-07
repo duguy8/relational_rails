@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   delete '/dealers/:id', to: 'dealers#destroy'
   get '/dealers/:id/instruments', to: 'dealers#instruments'
   get '/dealers/:id/instruments/new', to: 'dealers#new_instrument'
-  patch '/dealers/:id/instruments', to: 'dealers#create_instrument'
+  post '/dealers/:id/instruments', to: 'dealers#create_instrument'
 
   #instruments
   get '/instruments', to: 'instruments#index'

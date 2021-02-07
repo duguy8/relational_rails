@@ -1,3 +1,6 @@
+<p><%= link_to "View All Dealers", "/dealers" %></p>
+<p><%= link_to "View All Instruments", "/instruments" %></p>
+
 <h1><%= @dealer.name %></h1>
 
 <h3><strong>All Inventory</strong></h3>
@@ -17,6 +20,8 @@
   <p><strong>On Sale?: </strong><%= instrument.on_sale %></p>
   <p><strong>Brand: </strong><%= instrument.brand %></p>
   <p><strong>Price: </strong><%= instrument.price %></p>
+  <p><%= link_to "Update Instrument", "/instruments/#{instrument.id}/edit" %></p>
+  <p><%= link_to "Delete Instrument", "/instruments/#{instrument.id}", method: :delete %></p>
 <% end %>
 
 <p><%= link_to "Create Instrument", "/dealers/#{@dealer.id}/instruments/new" %></p>
