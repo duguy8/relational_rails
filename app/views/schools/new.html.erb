@@ -1,20 +1,20 @@
 <p><%= link_to "View All Schools", "/schools" %></p>
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
-<form action="/schools" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h3>Create New School: </h3>
-  <label>Name: </label>
-  <input type='text' name='school[name]'/><br/>
-  <label>Address: </label>
-  <input type='text' name='school[address]'/><br/>
-  <label>City: </label>
-  <input type='text' name='school[city]'/><br/>
-  <label>State: </label>
-  <input type='text' name='school[state]'/><br/>
-  <label>Zipcode: </label>
-  <input type='text' name='school[zipcode]'/><br/>
-  <label>Grade School?: </label>
-  <input type='checkbox' name='school[gradeschool]'/><br/>
-  <input type='submit' value='Create School'/>
-</form>
+<%= form_with url: '/schools' do |form|%>
+  <h3><%= form.label "Create New School:" %></h3>
+  <p><%= form.label "Name: " %></p>
+  <p><%= form.text_field :name %></p><br>
+  <p><%= form.label "Address: " %></p>
+  <p><%= form.check_box :address %></p><br>
+  <p><%= form.label "City: " %></p>
+  <p><%= form.text_field :city %></p><br>
+  <p><%= form.label "State: " %></p>
+  <p><%= form.text_field :state %></p><br>
+  <p><%= form.label "Zipcode: " %></p>
+  <p><%= form.text_field :zipcode %></p><br>
+  <p><%= form.label "Grade School?: " %></p>
+  <p><%= form.text_field :gradeschool %></p><br>
+
+  <%= form.submit "Create School" %>
+<% end %>
