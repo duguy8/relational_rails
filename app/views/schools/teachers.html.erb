@@ -17,6 +17,7 @@
   <p><strong>College Graduate?: </strong><%= teacher.college_graduate ? 'Yes' : 'No' %></p>
   <p><strong>Salary: </strong><%= teacher.salary %></p>
   <p><%= link_to "Update Teacher", "/teachers/#{teacher.id}/edit" %></p>
+  <p><%= link_to "Delete Teacher", "/teachers/#{teacher.id}", method: :delete %></p>
 <% end %>
 
 <p><%= link_to "Create Teacher", "/schools/#{@school.id}/teachers/new" %></p>
