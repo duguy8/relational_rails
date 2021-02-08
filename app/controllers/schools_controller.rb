@@ -1,6 +1,11 @@
 class SchoolsController < ApplicationController
   def index
-    @schools = School.all.order_by_created_at
+    if params[:search]
+      @schools = School.search(params[:search])
+      @schools = School.partial_search(params[:search])
+    else
+      @schools = School.all.order_by_created_at
+    end
   end
 
   def teachers
@@ -75,9 +80,5 @@ class SchoolsController < ApplicationController
 
   def teacher_params
     params.permit(:name, :college_graduate, :salary)
-  end
-
-  def search_params
-    params.permit("name")
   end
 end
