@@ -29,6 +29,7 @@ RSpec.describe 'As a visitor' do
       click_link 'Create Teacher'
       fill_in "name", :with => "New Teacher"
       fill_in "salary", :with => 50_000
+      check "college_graduate"
       click_button 'Create Teacher'
 
       expect(current_path).to eq("/schools/#{school_1.id}/teachers")

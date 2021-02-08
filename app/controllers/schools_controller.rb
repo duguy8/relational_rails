@@ -76,4 +76,8 @@ class SchoolsController < ApplicationController
   def teacher_params
     params.permit(:name, :college_graduate, :salary)
   end
+
+  def search_params
+    params.permit("name")
+  end
 end
