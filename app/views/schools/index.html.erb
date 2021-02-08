@@ -1,6 +1,11 @@
 <p><%= link_to "View All Schools", "/schools" %></p>
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
+<%= form_with url: "/schools" do |form| %>
+<p><%= form.text_field "name", value: "Enter School Name" %></p>
+<%= form.submit "Search" %>
+<% end %>
+
 <h1>All Schools</h1>
 
 <h4><a href="/schools/new">Create School</a></h4>
