@@ -5,4 +5,5 @@
 <% @schools.each do |school| %>
   <h3><a href="/schools/<%= school.id %>"><%= school.name %></a></h3>
   <h5>Created: <%= school.created_at %></h5>
+  <p><%= link_to "Update School", "/schools/#{school.id}/edit" %></p>
 <% end %>
