@@ -1,16 +1,16 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<%= form_tag("/dealers/#{@dealer.id}/instruments", method: "post") do %>
-  <h3><%= label_tag "Create New Instrument:" %></h3>
-  <p><%= label_tag "Name: " %></p>
-  <p><%= text_field_tag :name %></p><br>
-  <p><%= label_tag "On Sale?: " %></p>
-  <p><%= check_box_tag :on_sale %></p><br>
-  <p><%= label_tag "Brand: " %></p>
-  <p><%= text_field_tag :brand %></p><br>
-  <p><%= label_tag "Price: " %></p>
-  <p><%= text_field_tag :price %></p><br>
+<%= form_with(url: "/dealers/#{@dealer.id}/instruments", method: "post") do %>
+  <h3><%= label_tag ("Create New Instrument:") %></h3>
+  <p><%= label_tag ("Name: ") %></p>
+  <p><%= text_field_tag (:name) %></p><br>
+  <p><%= label_tag ("On Sale?: ") %></p>
+  <p><%= check_box_tag (:on_sale) %></p><br>
+  <p><%= label_tag ("Brand: ") %></p>
+  <p><%= text_field_tag (:brand) %></p><br>
+  <p><%= label_tag ("Price: ") %></p>
+  <p><%= text_field_tag (:price) %></p><br>
 
-  <%= submit_tag "Create Instrument" %>
+  <%= submit_tag ("Create Instrument") %>
 <% end %>

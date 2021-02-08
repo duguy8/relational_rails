@@ -1,9 +1,9 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<%= form_tag("/dealers", method: "post") do %>
+<%= form_with(url: "/dealers", method: "post") do %>
   <h3><%= label_tag("Create New Dealer:") %></h3>
-  <p><%= label_tag "Name: " %></p>
+  <p><%= label_tag ("Name: ") %></p>
   <p><%= text_field_tag(:name) %></p><br>
   <p><%= label_tag("Fully Staffed?: ") %></p>
   <p><%= check_box_tag(:fully_staffed) %></p><br>
