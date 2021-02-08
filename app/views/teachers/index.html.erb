@@ -4,4 +4,5 @@
   <h4><%= teacher.name %></h4>
   <h5>College Graduate?: <%= teacher.college_graduate ? 'Yes' : 'No' %></h5>
   <h5>Salary: <%= teacher.salary %></h5>
+  <p><%= link_to "Update Teacher", "/teachers/#{teacher.id}/edit" %></p>
 <%end%>
