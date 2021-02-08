@@ -11,6 +11,7 @@
 <p><strong>Grade School?: </strong><%= @school.gradeschool ? 'Yes' : 'No' %></p>
 
 <h3><%= @teachers %> teachers employed at <%= @school.name %>!</h3>
+<h3><%= link_to "All teachers employed at #{@school.name}", "/schools/#{@school.id}/teachers" %></h3>
 
 <p><%= link_to "Teachers", "/schools/#{@school.id}/teachers" %></p>
 
