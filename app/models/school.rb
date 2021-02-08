@@ -11,8 +11,6 @@ class School < ApplicationRecord
   end
 
   def self.search(input)
-    if input
-       where(name: input)
-    end
+    where(name: input)
   end
 end

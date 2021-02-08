@@ -60,18 +60,6 @@ RSpec.describe Instrument, type: :model do
         expect(guitar).to eq(expected)
       end
 
-      # it 'Raise error is nothing found' do
-      #   dealer = create(:dealer, id: 1)
-      #   guitar1 = create(:instrument, dealer_id: 1, name: "A")
-      #   guitar2 = create(:instrument, dealer_id: 1, name: "C")
-      #   guitar3 = create(:instrument, dealer_id: 1, name: "B")
-      #
-      #   guitar = Instrument.search("D")
-      #   expected = [guitar3]
-      #
-      #   expect(guitar).to eq(expected)
-      # end
-
       it 'Search finds instruments by partial name' do
         guitar = create(:instrument, name: "The Guitar")
         bass = create(:instrument, name: "Bass the")

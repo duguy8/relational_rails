@@ -7,9 +7,7 @@ class Teacher < ApplicationRecord
   end
 
   def self.search(input)
-    if input
-      where(name: input)
-    end
+    where(name: input)
   end
 
   def self.college_graduates
