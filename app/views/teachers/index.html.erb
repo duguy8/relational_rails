@@ -1,7 +1,18 @@
+<p><%= link_to "View All Schools", "/schools" %></p>
+<p><%= link_to "View All Teachers", "/teachers" %></p>
+
+<h4>Search for Teacher by Name</h4>
+  <%= form_tag("/teachers", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h1>All Teachers</h1>
 
 <% @teachers.each do |teacher| %>
   <h4><%= teacher.name %></h4>
   <h5>College Graduate?: <%= teacher.college_graduate ? 'Yes' : 'No' %></h5>
   <h5>Salary: <%= teacher.salary %></h5>
+  <p><%= link_to "Update Teacher", "/teachers/#{teacher.id}/edit" %></p>
+  <p><%= link_to "Delete Teacher", "/teachers/#{teacher.id}", method: :delete %></p>
 <%end%>

@@ -6,8 +6,6 @@ class CreateTeacher < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :college_graduate
       t.integer :salary
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end

@@ -1,3 +1,12 @@
+<p><%= link_to "View All Schools", "/schools" %></p>
+<p><%= link_to "View All Teachers", "/teachers" %></p>
+
+<h4>Search for School by Name</h4>
+  <%= form_tag("/schools", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h1>All Schools</h1>
 
 <h4><a href="/schools/new">Create School</a></h4>
@@ -5,4 +14,6 @@
 <% @schools.each do |school| %>
   <h3><a href="/schools/<%= school.id %>"><%= school.name %></a></h3>
   <h5>Created: <%= school.created_at %></h5>
+  <p><%= link_to "Update School", "/schools/#{school.id}/edit" %></p>
+  <p><%= link_to "Delete School", "/schools/#{school.id}", method: :delete %></p>
 <% end %>

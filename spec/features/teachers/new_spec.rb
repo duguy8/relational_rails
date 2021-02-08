@@ -27,13 +27,14 @@ RSpec.describe 'As a visitor' do
 
       visit "/schools/#{school_1.id}/teachers"
       click_link 'Create Teacher'
-      fill_in "teacher[name]", :with => "New Teacher"
-      fill_in "teacher[salary]", :with => 50000
+      fill_in "name", :with => "New Teacher"
+      fill_in "salary", :with => 50_000
+      check "college_graduate"
       click_button 'Create Teacher'
 
       expect(current_path).to eq("/schools/#{school_1.id}/teachers")
       expect(page).to have_content("New Teacher")
-      expect(page).to have_content(50000)
+      expect(page).to have_content(50_000)
     end
   end
 end

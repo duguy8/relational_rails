@@ -1,6 +1,11 @@
 class SchoolsController < ApplicationController
   def index
-    @schools = School.all.order_by_created_at
+    if params[:search]
+      @schools = School.search(params[:search])
+      @schools = School.partial_search(params[:search])
+    else
+      @schools = School.all.order_by_created_at
+    end
   end
 
   def teachers
@@ -24,14 +29,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
-    school = School.new({
-      name: params[:school][:name],
-      address: params[:school][:address],
-      city: params[:school][:city],
-      state: params[:school][:state],
-      zipcode: params[:school][:zipcode],
-      gradeschool: params[:school][:gradeschool]
-      })
+    school = School.new(school_params)
 
     school.save
     redirect_to '/schools'
@@ -68,13 +66,19 @@ class SchoolsController < ApplicationController
   def create_teacher
     school = School.find(params[:id])
     teachers = school.teachers
-    new_teacher = teachers.create!(
-      name: params[:teacher][:name],
-      college_graduate: params[:teacher][:college_graduate],
-      salary: params[:teacher][:salary]
-    )
+    new_teacher = teachers.create!(teacher_params)
 
     new_teacher.save
     redirect_to "/schools/#{school.id}/teachers"
+  end
+
+  private
+
+  def school_params
+    params.permit(:name, :address, :city, :state, :zipcode, :gradeschool)
+  end
+
+  def teacher_params
+    params.permit(:name, :college_graduate, :salary)
   end
 end

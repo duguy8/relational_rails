@@ -1,6 +1,11 @@
 class TeachersController < ApplicationController
   def index
-    @teachers = Teacher.all.college_graduates
+    if params[:search]
+      @teachers = Teacher.search(params[:search])
+      @teachers = Teacher.partial_search(params[:search])
+    else
+      @teachers = Teacher.all.college_graduates
+    end
   end
 
   def show

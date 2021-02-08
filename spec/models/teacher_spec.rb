@@ -47,5 +47,29 @@ RSpec.describe Teacher, type: :model do
 
       expect(teachers).to eq(expected)
     end
+
+    it 'Can search by name' do
+      school = create(:school, id: 1)
+      teacher_1 = create(:teacher, school_id: 1, name: "A")
+      teacher_2 = create(:teacher, school_id: 1, name: "C")
+      teacher_3 = create(:teacher, school_id: 1, name: "B")
+
+      teacher = Teacher.search("B")
+      expected = [teacher_3]
+
+      expect(teacher).to eq(expected)
+    end
+
+    it 'Search finds teachers by partial name' do
+      teacher_1 = create(:teacher, name: "The cool teacher")
+      teacher_2 = create(:teacher, name: "Teacher the")
+      teacher_3 = create(:teacher, name: "teacher")
+
+      teachers = Teacher.all
+      expected = [teacher_1, teacher_2]
+      bad = [teacher_3]
+      expect(teachers.partial_search("the")).to eq(expected)
+      expect(teachers.partial_search("the")).to_not eq(bad)
+    end
   end
 end
