@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'When I visit "/schools"' do
     it 'I see every school' do
-      school_1 = create(:school, name: Faker::Coffee.notes)
-      school_2 = create(:school, name: Faker::Coffee.notes)
+      school_1 = create(:school)
+      school_2 = create(:school)
 
       visit '/schools'
 
