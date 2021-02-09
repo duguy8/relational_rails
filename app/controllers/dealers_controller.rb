@@ -43,14 +43,7 @@ class DealersController < ApplicationController
 
   def update
     dealer = Dealer.find(params[:id])
-    dealer.update({
-      name: params[:dealer][:name],
-      fully_staffed: params[:dealer][:fully_staffed],
-      sq_ft: params[:dealer][:sq_ft],
-      city: params[:dealer][:city],
-      state: params[:dealer][:state]
-      })
-
+    dealer.update(dealer_params)
     dealer.save
     redirect_to "/dealers/#{dealer.id}"
   end

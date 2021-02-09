@@ -31,7 +31,7 @@ RSpec.describe 'As a visitor' do
       click_link("Update Instrument")
       expect(current_path).to eq("/instruments/#{guitar.id}/edit")
       expect(page).to have_button("Update Instrument")
-      fill_in "instrument[name]", :with => "Electrical Guitar Company"
+      fill_in "name", :with => "Electrical Guitar Company"
       click_button "Update Instrument"
       expect(current_path).to eq("/instruments/#{guitar.id}")
       expect(page).to have_content("Electrical Guitar Company")
@@ -45,7 +45,7 @@ RSpec.describe 'As a visitor' do
       click_link("Update Instrument")
       expect(current_path).to eq("/instruments/#{guitar.id}/edit")
       expect(page).to have_button("Update Instrument")
-      fill_in "instrument[name]", :with => "Electrical Guitar Company"
+      fill_in "name", :with => "Electrical Guitar Company"
       click_button "Update Instrument"
       expect(current_path).to eq("/instruments/#{guitar.id}")
       expect(page).to have_content("Electrical Guitar Company")

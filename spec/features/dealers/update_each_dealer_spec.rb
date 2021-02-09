@@ -26,7 +26,7 @@ RSpec.describe 'As a visitor' do
       dealer1 = create(:dealer, name: "Wow Cool Guitars")
       visit "/dealers"
       click_link("Update Dealer")
-      fill_in "dealer[name]", :with => "Guitar Center"
+      fill_in "name", :with => "Guitar Center"
       click_button "Update Dealer"
       expect(current_path).to eq("/dealers/#{dealer1.id}")
       expect(page).to have_content("Guitar Center")

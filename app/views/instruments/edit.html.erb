@@ -1,17 +1,16 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<form action="/instruments/<%= @instrument.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Edit</p>
-  <label>Name: </label>
-    <input type='text' name='instrument[name]' value="<%= @instrument.name %>"/><br/>
-  <label>On Sale?: </label>
-    <input type='checkbox' name='instrument[on_sale]' <%= @instrument.on_sale ? 'checked' : '' %>/><br/>
-  <label>Brand: </label>
-    <input type='text' name='instrument[brand]' value="<%= @instrument.brand %>"/><br/>
-  <label>Price: </label>
-    <input type='text' name='instrument[price]' value="<%= @instrument.price %>"/><br/>
-    <input type='submit' value='Update Instrument'/>
-</form>
+<%= form_with(url: "/instruments/#{@instrument.id}", method: "patch", local: true) do %>
+  <h3><%= label_tag ("Create New Instrument:") %></h3>
+  <p><%= label_tag ("Name: ") %></p>
+  <p><%= text_field_tag :name, "Enter Name" %></p><br>
+  <p><%= label_tag ("On Sale?: ") %></p>
+  <p><%= check_box_tag (:on_sale) %></p><br>
+  <p><%= label_tag ("Brand: ") %></p>
+  <p><%= text_field_tag :brand, "Enter Brand" %></p><br>
+  <p><%= label_tag ("Price: ") %></p>
+  <p><%= text_field_tag :price, "Enter Price" %></p><br>
+
+  <%= submit_tag ("Update Instrument") %>
+<% end %>
