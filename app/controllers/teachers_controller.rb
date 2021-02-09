@@ -26,9 +26,10 @@ class TeachersController < ApplicationController
 
   def destroy
     teacher = Teacher.find(params[:id])
+    school = teacher.school
     teacher.destroy
 
-    redirect_to '/teachers'
+    redirect_to "/schools/#{school.id}/teachers"
   end
 
   private

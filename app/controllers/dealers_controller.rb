@@ -6,7 +6,7 @@ class DealersController < ApplicationController
       @dealers = Dealer.search(params[:search])
       @dealers = Dealer.partial_search(params[:search])
     else
-      @dealers = Dealer.order_by
+      @dealers = Dealer.order_by_created_at
     end
   end
 

@@ -12,4 +12,8 @@ class ApplicationRecord < ActiveRecord::Base
   def self.order_by_name
     order(:name)
   end
+
+  def self.order_by_created_at
+    order(created_at: :desc)
+  end
 end

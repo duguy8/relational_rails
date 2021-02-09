@@ -25,9 +25,10 @@ class InstrumentsController < ApplicationController
 
   def destroy
     instrument = Instrument.find(params[:id])
+    dealer = instrument.dealer
     instrument.destroy
 
-    redirect_to '/instruments'
+    redirect_to "/dealers/#{dealer.id}/instruments"
   end
 
   private

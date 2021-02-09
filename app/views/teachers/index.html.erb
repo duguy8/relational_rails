@@ -2,8 +2,8 @@
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
 <h4>Search for Teacher by Name</h4>
-  <%= form_tag("/teachers", method: "get") do %>
-  <p><%= text_field_tag(:search, params[:search]) %></p>
+<%= form_tag("/teachers", method: "get") do %>
+  <%= text_field_tag(:search, params[:search]) %>
   <%= submit_tag("Search") %>
 <% end %>
 

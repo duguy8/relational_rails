@@ -15,6 +15,6 @@
 
 <p><%= link_to "Instruments", "/dealers/#{@dealer.id}/instruments" %></p>
 
-<p><a href="/dealers/<%=@dealer.id%>/edit">Update Dealer</p>
+<p><%= link_to "Update Dealer", "/dealers/#{@dealer.id}/edit" %></p>
 
 <p><%= link_to "Delete Dealer", "/dealers/#{@dealer.id}", method: :delete %></p>

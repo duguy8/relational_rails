@@ -17,7 +17,7 @@ RSpec.describe Dealer, type: :model do
 
         dealers = Dealer.all
         expected = [dealer3, dealer2, dealer1]
-        expect(dealers.order_by).to eq(expected)
+        expect(dealers.order_by_created_at).to eq(expected)
       end
 
       it 'Search finds a dealer by name' do

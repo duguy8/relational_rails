@@ -4,15 +4,15 @@
 <%= form_with(url: "/dealers", method: "post", local: true) do |f| %>
   <h3><%= f.label "Create New Dealer:" %></h3>
   <p><%= f.label "Name: " %></p>
-  <p><%= f.text_field :name, value: "Enter Name" %></p><br>
+  <p><%= f.text_field :name, placeholder: "Enter Name" %></p><br>
   <p><%= f.label "Fully Staffed?: " %></p>
   <p><%= f.check_box :fully_staffed %></p><br>
   <p><%= f.label "Sq Ft: " %></p>
-  <p><%= f.text_field :sq_ft, value: "Enter Square Footage" %></p><br>
+  <p><%= f.text_field :sq_ft, placeholder: "Enter Square Footage" %></p><br>
   <p><%= f.label "City: " %></p>
-  <p><%= f.text_field :city, value: "Enter City" %></p><br>
+  <p><%= f.text_field :city, placeholder: "Enter City" %></p><br>
   <p><%= f.label "State: " %></p>
-  <p><%= f.text_field :state, value: "Enter State" %></p><br>
+  <p><%= f.text_field :state, placeholder: "Enter State" %></p><br>
 
   <%= f.submit "Create Dealer" %>
 <% end %>
