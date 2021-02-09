@@ -1,20 +1,20 @@
 <p><%= link_to "View All Schools", "/schools" %></p>
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
-<%= form_tag('/schools', method: "post") do %>
-  <h3><%= label_tag("Create New School:") %></h3>
-  <p><%= label_tag("Name: ") %></p>
-  <p><%= text_field_tag(:name) %></p><br>
-  <p><%= label_tag("Address: ") %></p>
-  <p><%= text_field_tag(:address) %></p><br>
-  <p><%= label_tag("City: ") %></p>
-  <p><%= text_field_tag(:city) %></p><br>
-  <p><%= label_tag("State: ") %></p>
-  <p><%= text_field_tag(:state) %></p><br>
-  <p><%= label_tag("Zipcode: ") %></p>
-  <p><%= text_field_tag(:zipcode) %></p><br>
-  <p><%= label_tag("Grade School?: ") %></p>
-  <p><%= check_box_tag(:gradeschool) %></p><br>
+<%= form_with url: '/schools', method: :post, local: true do |form|%>
+  <h3><%= form.label "Create New School:" %></h3>
+  <p><%= form.label "Name: " %></p>
+  <p><%= form.text_field :name %></p><br>
+  <p><%= form.label "Address: " %></p>
+  <p><%= form.text_field :address %></p><br>
+  <p><%= form.label "City: " %></p>
+  <p><%= form.text_field :city %></p><br>
+  <p><%= form.label "State: " %></p>
+  <p><%= form.text_field :state %></p><br>
+  <p><%= form.label "Zipcode: " %></p>
+  <p><%= form.text_field :zipcode %></p><br>
+  <p><%= form.label "Grade School?: " %></p>
+  <p><%= form.check_box :gradeschool %></p><br>
 
-  <%= submit_tag("Create School") %>
+  <%= form.submit "Create School" %>
 <% end %>

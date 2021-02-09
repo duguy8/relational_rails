@@ -1,21 +1,20 @@
 <p><%= link_to "View All Schools", "/schools" %></p>
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
-<form action="/schools/<%= @school.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Edit</p>
-  <label>Name: </label>
-  <input type='text' name='school[name]' value="<%= @school.name %>"/><br/>
-  <label>Address: </label>
-  <input type='text' name='school[address]' value="<%= @school.address %>"/><br/>
-  <label>City: </label>
-  <input type='text' name='school[city]' value="<%= @school.city %>"/><br/>
-  <label>State: </label>
-  <input type='text' name='school[state]' value="<%= @school.state %>"/><br/>
-  <label>Zipcode: </label>
-  <input type='text' name='school[zipcode]' value="<%= @school.zipcode %>"/><br/>
-  <label>Grade School?: </label>
-  <input type='checkbox' name='school[gradeschool]' <%= @school.gradeschool ? 'checked' : '' %>/><br/>
-  <input type='submit' value='Update School'/>
-</form>
+<h3>Edit</h3>
+
+<%= form_with url: "/schools/#{@school.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label "Name: " %></p>
+  <p><%= form.text_field :name, value: "#{@school.name}" %></p><br>
+  <p><%= form.label "Address: " %></p>
+  <p><%= form.text_field :address, value: "#{@school.address}" %></p><br>
+  <p><%= form.label "City: " %></p>
+  <p><%= form.text_field :city, value: "#{@school.city}" %></p><br>
+  <p><%= form.label "State: " %></p>
+  <p><%= form.text_field :state, value: "#{@school.state}" %></p><br>
+  <p><%= form.label "Zipcode: " %></p>
+  <p><%= form.text_field :zipcode, value: "#{@school.zipcode}" %></p><br>
+  <p><%= form.label "Grade School?: " %></p>
+  <p><%= form.check_box :gradeschool %></p><br>
+  <%= form.submit "Update School" %>
+<% end %>

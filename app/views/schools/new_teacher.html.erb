@@ -1,14 +1,14 @@
 <p><%= link_to "View All Schools", "/schools" %></p>
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
-<%= form_tag("/schools/#{@school.id}/teachers", method: "post") do %>
-  <h3><%= label_tag "Create New Teacher:" %></h3>
-  <p><%= label_tag "Name: " %></p>
-  <p><%= text_field_tag :name %></p><br>
-  <p><%= label_tag "College Graduate?: " %></p>
-  <p><%= check_box_tag :college_graduate %></p><br>
-  <p><%= label_tag "Salary: " %></p>
-  <p><%= text_field_tag :salary %></p><br>
+<%= form_with url: "/schools/#{@school.id}/teachers", method: :post, local: true do |form|%>
+  <h3><%= form.label "Create New Teacher:" %></h3>
+  <p><%= form.label "Name: " %></p>
+  <p><%= form.text_field :name %></p><br>
+  <p><%= form.label "College Graduate?: " %></p>
+  <p><%= form.check_box :college_graduate %></p><br>
+  <p><%= form.label "Salary: " %></p>
+  <p><%= form.text_field :salary %></p><br>
 
-  <%= submit_tag "Create Teacher" %>
+  <%= form.submit "Create Teacher" %>
 <% end %>

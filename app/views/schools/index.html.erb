@@ -2,9 +2,9 @@
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
 <h4>Search for School by Name</h4>
-  <%= form_tag("/schools", method: "get") do %>
-  <p><%= text_field_tag(:search, params[:search]) %></p>
-  <%= submit_tag("Search") %>
+<%= form_with url: "/schools", method: :get, local: true do |form| %>
+  <p><%= form.text_field :search %></p><br>
+  <%= form.submit "Search" %>
 <% end %>
 
 <h1>All Schools</h1>
