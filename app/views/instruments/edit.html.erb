@@ -4,13 +4,13 @@
 <%= form_with(url: "/instruments/#{@instrument.id}", method: "patch", local: true) do|f| %>
   <h3><%= f.label "Create New Instrument:" %></h3>
   <p><%= f.label "Name: " %></p>
-  <p><%= f.text_field :name, value: "Enter Name" %></p><br>
+  <p><%= f.text_field :name, value: "#{@instrument.name}" %></p><br>
   <p><%= f.label "On Sale?: " %></p>
-  <p><%= f.check_box :on_sale %></p><br>
+  <p><%= f.check_box :on_sale, checked: @instrument.on_sale %></p><br>
   <p><%= f.label "Brand: " %></p>
-  <p><%= f.text_field :brand, value: "Enter Brand" %></p><br>
+  <p><%= f.text_field :brand, value: "#{@instrument.brand}" %></p><br>
   <p><%= f.label "Price: " %></p>
-  <p><%= f.text_field :price, value: "Enter Price" %></p><br>
+  <p><%= f.text_field :price, value: "#{@instrument.price}" %></p><br>
 
   <%= f.submit "Update Instrument" %>
 <% end %>

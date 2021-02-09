@@ -1,7 +1,7 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<%= form_with(url: "/dealers", method: "post") do |f| %>
+<%= form_with(url: "/dealers", method: "post", local: true) do |f| %>
   <h3><%= f.label "Create New Dealer:" %></h3>
   <p><%= f.label "Name: " %></p>
   <p><%= f.text_field :name, value: "Enter Name" %></p><br>

@@ -5,15 +5,15 @@
 <%= form_with(url: "/dealers/#{@dealer.id}", method: "patch", local: true) do |f| %>
   <h3><%= f.label "Edit" %></h3>
     <p><%= f.label "Name: " %></p>
-    <p><%= f.text_field :name, value: "Enter Name" %></p><br>
+    <p><%= f.text_field :name, value: "#{@dealer.name}" %></p><br>
     <p><%= f.label "Fully Staffed?: " %></p>
-    <p><%= f.check_box :fully_staffed ? 'checked' : '' %></p><br>
+    <p><%= f.check_box :fully_staffed, checked: @dealer.fully_staffed %></p><br>
     <p><%= f.label "Sq Ft: " %></p>
-    <p><%= f.text_field :sq_ft, value: "Enter Square Footage" %></p><br>
+    <p><%= f.text_field :sq_ft, value: "#{@dealer.sq_ft}" %></p><br>
     <p><%= f.label "City: " %></p>
-    <p><%= f.text_field :city, value: "Enter City" %></p><br>
+    <p><%= f.text_field :city, value: "#{@dealer.city}" %></p><br>
     <p><%= f.label "State: " %></p>
-    <p><%= f.text_field :state, value: "Enter State" %></p><br>
+    <p><%= f.text_field :state, value: "#{@dealer.state}" %></p><br>
 
     <%= f.submit "Update Dealer" %>
 <% end  %>
