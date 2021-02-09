@@ -41,14 +41,7 @@ class SchoolsController < ApplicationController
 
   def update
     school = School.find(params[:id])
-    school.update({
-      name: params[:school][:name],
-      address: params[:school][:address],
-      city: params[:school][:city],
-      state: params[:school][:state],
-      zipcode: params[:school][:zipcode],
-      gradeschool: params[:school][:gradeschool]
-      })
+    school.update(school_params)
 
     school.save
     redirect_to "/schools/#{school.id}"
