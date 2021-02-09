@@ -35,7 +35,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/teachers"
       click_link("Delete Teacher")
-      expect(current_path).to eq("/teachers")
+      expect(current_path).to eq("/schools/#{school.id}/teachers")
       expect(page).not_to have_content(teacher_1.name)
     end
 
@@ -53,7 +53,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/schools/#{school.id}/teachers"
       click_link("Delete Teacher")
-      expect(current_path).to eq("/teachers")
+      expect(current_path).to eq("/schools/#{school.id}/teachers")
       expect(page).not_to have_content(teacher_1.name)
     end
   end
@@ -69,11 +69,12 @@ RSpec.describe 'As a visitor' do
   describe "When I click the link" do
     it "Teacher is deleted and redirected to Teacher index page" do
       teacher_1 = create(:teacher)
+      school = teacher_1.school
 
       visit "/teachers/#{teacher_1.id}"
       expect(page).to have_link("Delete Teacher")
       click_link "Delete Teacher"
-      expect(current_path).to eq('/teachers')
+      expect(current_path).to eq("/schools/#{school.id}/teachers")
       expect(page).not_to have_content(teacher_1.name)
     end
   end
