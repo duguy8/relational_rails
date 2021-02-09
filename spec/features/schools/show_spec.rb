@@ -30,9 +30,9 @@ RSpec.describe 'As a visitor' do
       teacher_2 = create(:teacher, school_id: 1)
       teacher_3 = create(:teacher, school_id: 1)
       teacher_4 = create(:teacher, school_id: 1)
-      
+
       visit "/schools/#{school.id}"
-      expect(page).to have_content("4 teachers employed at #{school.name}!")
+      expect(page).to have_content("4 teachers at #{school.name}!")
     end
   end
 end

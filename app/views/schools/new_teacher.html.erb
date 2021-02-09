@@ -4,11 +4,11 @@
 <%= form_with url: "/schools/#{@school.id}/teachers", method: :post, local: true do |form|%>
   <h3><%= form.label "Create New Teacher:" %></h3>
   <p><%= form.label "Name: " %></p>
-  <p><%= form.text_field :name, placeholder: "Enter Name" %></p><br>
+  <p><%= form.text_field :name, placeholder: "Jane Doe" %></p>
   <p><%= form.label "College Graduate?: " %></p>
-  <p><%= form.check_box :college_graduate %></p><br>
+  <p><%= form.check_box :college_graduate %></p>
   <p><%= form.label "Salary: " %></p>
-  <p><%= form.text_field :salary, placeholder: "Enter Salary" %></p><br>
+  <p><%= form.text_field :salary, placeholder: "25000", maxlength: 9 %></p>
 
   <%= form.submit "Create Teacher" %>
 <% end %>
