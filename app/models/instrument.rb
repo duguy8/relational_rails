@@ -9,8 +9,4 @@ class Instrument < ApplicationRecord
   def self.filter_price(amount)
     where('price > ?', amount)
   end
-
-  def self.order_by_name
-    order(:name)
-  end
 end

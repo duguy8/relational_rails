@@ -8,4 +8,8 @@ class ApplicationRecord < ActiveRecord::Base
   def self.partial_search(input)
     where("name ILIKE ?", "%#{input}%")
   end
+
+  def self.order_by_name
+    order(:name)
+  end
 end

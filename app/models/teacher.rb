@@ -9,8 +9,4 @@ class Teacher < ApplicationRecord
   def self.filter_salary(amount)
     where('salary > ?', amount)
   end
-
-  def self.order_by_name
-    order(:name)
-  end
 end
