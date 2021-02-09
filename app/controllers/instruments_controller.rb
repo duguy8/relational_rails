@@ -18,13 +18,7 @@ class InstrumentsController < ApplicationController
 
   def update
     instrument = Instrument.find(params[:id])
-    instrument.update({
-      name: params[:instrument][:name],
-      on_sale: params[:instrument][:on_sale],
-      brand: params[:instrument][:brand],
-      price: params[:instrument][:price]
-      })
-
+    instrument.update(instrument_params)
     instrument.save
     redirect_to "/instruments/#{instrument.id}"
   end
@@ -34,5 +28,11 @@ class InstrumentsController < ApplicationController
     instrument.destroy
 
     redirect_to '/instruments'
+  end
+
+  private
+
+  def instrument_params
+    params.permit(:name, :on_sale, :brand, :price)
   end
 end
