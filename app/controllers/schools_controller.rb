@@ -1,6 +1,8 @@
 class SchoolsController < ApplicationController
   def index
-    if params[:search]
+    if params[:sort] == "by_num_of_teachers"
+      @schools = School.order_by_teacher_count
+    elsif params[:search]
       @schools = School.search(params[:search])
       @schools = School.partial_search(params[:search])
     else
