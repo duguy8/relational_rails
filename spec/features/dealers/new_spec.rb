@@ -8,6 +8,7 @@ RSpec.describe 'As a visitor' do
       click_link "Create Dealer"
       fill_in 'name', :with => 'Sweet Shop'
       expect(current_path).to eq("/dealers/new")
+      save_and_open_page
       click_button "Create Dealer"
       expect(Dealer.all.count).to eq 1
       expect(page).to have_content(Dealer)
