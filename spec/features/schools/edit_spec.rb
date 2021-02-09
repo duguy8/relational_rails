@@ -27,7 +27,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/schools"
       click_link("Update School")
-      fill_in "school[name]", :with => "Middle School"
+      fill_in "name", :with => "Middle School"
       click_button "Update School"
       expect(current_path).to eq("/schools/#{school_1.id}")
       expect(page).to have_content("Middle School")
@@ -58,7 +58,7 @@ RSpec.describe 'As a visitor' do
       click_link 'Update School'
       expect(current_path).to eq("/schools/#{school_1.id}/edit")
 
-      fill_in "school[name]", :with => 'Great School'
+      fill_in "name", :with => 'Great School'
       click_button 'Update School'
       expect(current_path).to eq("/schools/#{school_1.id}")
       expect(page).to have_content('Great School')
