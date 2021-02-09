@@ -24,6 +24,6 @@ h3{
 }
 
 body {
-  background-image: image-url("/blue_background.jpg");
+  background-image: url("blue_background.jpg");
   background-repeat: no-repeat;
      }
