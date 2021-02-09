@@ -2,18 +2,18 @@
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
 
-<%= form_with(url: "/dealers/#{@dealer.id}", method: "patch", local: true) do %>
-  <h3><%= label_tag ("Edit") %></h3>
-    <p><%= label_tag ("Name: ") %></p>
-    <p><%= text_field_tag :name, "Enter Name" %></p><br>
-    <p><%= label_tag ("Fully Staffed?: ") %></p>
-    <p><%= check_box_tag (:fully_staffed ? 'checked' : '') %></p><br>
-    <p><%= label_tag ("Sq Ft: ") %></p>
-    <p><%= text_field_tag :sq_ft, "Enter Square Footage" %></p><br>
-    <p><%= label_tag ("City: ") %></p>
-    <p><%= text_field_tag :city, "Enter City" %></p><br>
-    <p><%= label_tag ("State: ") %></p>
-    <p><%= text_field_tag :state, "Enter State" %></p><br>
+<%= form_with(url: "/dealers/#{@dealer.id}", method: "patch", local: true) do |f| %>
+  <h3><%= f.label "Edit" %></h3>
+    <p><%= f.label "Name: " %></p>
+    <p><%= f.text_field :name, value: "Enter Name" %></p><br>
+    <p><%= f.label "Fully Staffed?: " %></p>
+    <p><%= f.check_box :fully_staffed ? 'checked' : '' %></p><br>
+    <p><%= f.label "Sq Ft: " %></p>
+    <p><%= f.text_field :sq_ft, value: "Enter Square Footage" %></p><br>
+    <p><%= f.label "City: " %></p>
+    <p><%= f.text_field :city, value: "Enter City" %></p><br>
+    <p><%= f.label "State: " %></p>
+    <p><%= f.text_field :state, value: "Enter State" %></p><br>
 
-    <%= submit_tag ("Update Dealer") %>
+    <%= f.submit "Update Dealer" %>
 <% end  %>

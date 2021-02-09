@@ -1,16 +1,16 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-<%= form_with(url: "/dealers/#{@dealer.id}/instruments", method: "post") do %>
-  <h3><%= label_tag ("Create New Instrument:") %></h3>
-  <p><%= label_tag ("Name: ") %></p>
-  <p><%= text_field_tag :name, "Enter Name" %></p><br>
-  <p><%= label_tag ("On Sale?: ") %></p>
-  <p><%= check_box_tag (:on_sale) %></p><br>
-  <p><%= label_tag ("Brand: ") %></p>
-  <p><%= text_field_tag :brand, "Enter Brand" %></p><br>
-  <p><%= label_tag ("Price: ") %></p>
-  <p><%= text_field_tag :price, "Enter Price" %></p><br>
+<%= form_with(url: "/dealers/#{@dealer.id}/instruments", method: "post") do |f| %>
+  <h3><%= f.label "Create New Instrument:" %></h3>
+  <p><%= f.label "Name: " %></p>
+  <p><%= f.text_field :name, value: "Enter Name" %></p><br>
+  <p><%= f.label "On Sale?: " %></p>
+  <p><%= f.check_box :on_sale %></p><br>
+  <p><%= f.label "Brand: " %></p>
+  <p><%= f.text_field :brand, value: "Enter Brand" %></p><br>
+  <p><%= f.label "Price: " %></p>
+  <p><%= f.text_field :price, value: "Enter Price" %></p><br>
 
-  <%= submit_tag ("Create Instrument") %>
+  <%= f.submit "Create Instrument" %>
 <% end %>
