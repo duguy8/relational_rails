@@ -4,15 +4,13 @@
 <h1><%= @school.name %></h1>
 
 <h3><strong>All Teachers</strong></h3>
-
-<%= form_tag("/schools/#{@school.id}/teachers", method: "get") do %>
-  <%= label_tag(:amount, "Filter by Salary - Greater Than:") %>
-  <%= text_field_tag(:amount) %>
-  <%= submit_tag("Find Teachers") %>
+<%= form_with url: "/schools/#{@school.id}/teachers", method: :get, local: true do |form| %>
+  <p><%= form.label "Filter by Salary - Greater Than: " %></p>
+  <p><%= form.text_field :amount %></p><br>
+  <%= form.submit "Find Teachers" %>
 <% end %>
 
 <p><%= link_to "Sort Teachers by Name", "/schools/#{@school.id}/teachers?sort=by_name" %></p>
-
 <p><%= link_to "Clear Filter", "/schools/#{@school.id}/teachers" %></p>
 
 <% @teachers.each do |teacher| %>

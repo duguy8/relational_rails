@@ -1,15 +1,14 @@
 <p><%= link_to "View All Schools", "/schools" %></p>
 <p><%= link_to "View All Teachers", "/teachers" %></p>
 
-<form action="/teachers/<%= @teacher.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Edit</p>
-  <label>Name: </label>
-    <input type='text' name='teacher[name]' value="<%= @teacher.name %>"/><br/>
-  <label>College Graduate?: </label>
-    <input type='checkbox' name='teacher[college_graduate]' <%= @teacher.college_graduate ? 'checked' : '' %>/><br/>
-  <label>Salary: </label>
-    <input type='text' name='teacher[salary]' value="<%= @teacher.salary %>"/><br/>
-    <input type='submit' value='Update Teacher'/>
-</form>
+<h3>Edit</h3>
+
+<%= form_with url: "/teachers/#{@teacher.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label "Name: " %></p>
+  <p><%= form.text_field :name, value: "#{@teacher.name}" %></p><br>
+  <p><%= form.label "College Graduate?: " %></p>
+  <p><%= form.check_box :college_graduate %></p><br>
+  <p><%= form.label "Salary: " %></p>
+  <p><%= form.text_field :salary, value: "#{@teacher.salary}" %></p><br>
+  <%= form.submit "Update Teacher" %>
+<% end %>

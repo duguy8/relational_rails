@@ -31,7 +31,7 @@ RSpec.describe 'As a visitor' do
       click_link("Update Teacher")
       expect(current_path).to eq("/teachers/#{teacher_1.id}/edit")
       expect(page).to have_button("Update Teacher")
-      fill_in "teacher[name]", :with => "SJHS"
+      fill_in "name", :with => "SJHS"
       click_button "Update Teacher"
       expect(current_path).to eq("/teachers/#{teacher_1.id}")
       expect(page).to have_content("SJHS")
@@ -45,7 +45,7 @@ RSpec.describe 'As a visitor' do
       click_link("Update Teacher")
       expect(current_path).to eq("/teachers/#{teacher_1.id}/edit")
       expect(page).to have_button("Update Teacher")
-      fill_in "teacher[name]", :with => "SJHS"
+      fill_in "name", :with => "SJHS"
       click_button "Update Teacher"
       expect(current_path).to eq("/teachers/#{teacher_1.id}")
       expect(page).to have_content("SJHS")
@@ -77,7 +77,7 @@ RSpec.describe 'As a visitor' do
       click_link "Update Teacher"
       expect(current_path).to eq("/teachers/#{teacher_1.id}/edit")
       expect(page).to have_button("Update Teacher")
-      fill_in "teacher[name]", :with => "Bob"
+      fill_in "name", :with => "Bob"
       click_button "Update Teacher"
       expect(current_path).to eq("/teachers/#{teacher_1.id}")
       expect(page).to have_content("Bob")

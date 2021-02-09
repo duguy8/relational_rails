@@ -54,7 +54,7 @@ RSpec.describe 'As a visitor' do
       teacher_3 = create(:teacher, salary: 50_000, school_id: 1)
 
       visit "/schools/#{school_1.id}/teachers"
-      fill_in ("Filter by Salary - Greater Than:"), :with => "20_000"
+      fill_in :amount, :with => "20_000"
       click_button("Find Teachers")
       expect(current_path).to eq("/schools/#{school_1.id}/teachers")
       expect(page).to have_content(teacher_1.name)
