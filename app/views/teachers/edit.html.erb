@@ -7,7 +7,7 @@
   <p><%= form.label "Name: " %></p>
   <p><%= form.text_field :name, value: "#{@teacher.name}" %></p><br>
   <p><%= form.label "College Graduate?: " %></p>
-  <p><%= form.check_box :college_graduate %></p><br>
+  <p><%= form.check_box :college_graduate, checked: @teacher.college_graduate %></p><br>
   <p><%= form.label "Salary: " %></p>
   <p><%= form.text_field :salary, value: "#{@teacher.salary}" %></p><br>
   <%= form.submit "Update Teacher" %>
