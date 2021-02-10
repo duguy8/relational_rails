@@ -7,7 +7,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/dealers/#{dealer.id}/instruments/new"
       click_button("Create Instrument")
-      expect(page).to have_content("Instrument not created: Name is missing.")
+      expect(page).to have_content("Instrument not created: Required information missing.")
     end
   end
 end

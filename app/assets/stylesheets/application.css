@@ -15,7 +15,13 @@
  */
 
 /* element */
+
+p{
+  font-family: IBMPlexSans, Arial, sans-serif;
+}
+
 a{
+  font-family: IBMPlexSans, Arial, sans-serif;
   border-radius: 7px;
   padding: 6px;
   background-color: #5F5F5F;
@@ -23,6 +29,7 @@ a{
 }
 
 h3{
+  font-family: IBMPlexSans, Arial, sans-serif;
   padding: 10px;
   border: thick ridge;
   text-align: center;
@@ -31,11 +38,17 @@ h3{
 }
 
 h1{
+  font-family: BentonSans, sans-serif;
   text-shadow: 10px 10px 20px slategrey;
   text-align: center;
   font-size: 40px;
 }
 
 body {
+  display: block;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
   background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2155730.jpg");
      }

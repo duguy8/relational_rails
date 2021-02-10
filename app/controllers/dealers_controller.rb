@@ -35,7 +35,7 @@ class DealersController < ApplicationController
     if dealer.save
       redirect_to "/dealers"
     else
-      flash[:notice] = "Dealer not created: Name is missing."
+      flash[:notice] = "Dealer not created: Required information missing."
       render :new
     end
   end
@@ -69,7 +69,7 @@ class DealersController < ApplicationController
     if new.save
       redirect_to "/dealers/#{dealer.id}/instruments"
     else
-      flash[:notice] = "Instrument not created: Name is missing."
+      flash[:notice] = "Instrument not created: Required information missing."
       redirect_to "/dealers/#{dealer.id}/instruments"
     end
   end

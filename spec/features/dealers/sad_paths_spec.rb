@@ -6,7 +6,7 @@ RSpec.describe 'As a visitor' do
 
       visit '/dealers/new'
       click_button("Create Dealer")
-      expect(page).to have_content("Dealer not created: Name is missing.")
+      expect(page).to have_content("Dealer not created: Required information missing.")
       expect(page).to have_button('Create Dealer')
     end
   end
