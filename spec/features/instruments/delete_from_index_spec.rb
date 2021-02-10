@@ -35,7 +35,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/instruments"
       click_link("Delete Instrument")
-      expect(current_path).to eq("/instruments")
+      expect(current_path).to eq("/dealers/#{dealer.id}/instruments")
       expect(page).not_to have_content(guitar.name)
     end
 
@@ -54,7 +54,7 @@ RSpec.describe 'As a visitor' do
 
       visit "/dealers/#{dealer.id}/instruments"
       click_link("Delete Instrument")
-      expect(current_path).to eq("/instruments")
+      expect(current_path).to eq("/dealers/#{dealer.id}/instruments")
       expect(page).not_to have_content(guitar.name)
     end
   end
