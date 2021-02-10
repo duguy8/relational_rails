@@ -32,9 +32,12 @@ class SchoolsController < ApplicationController
 
   def create
     school = School.new(school_params)
-
-    school.save
-    redirect_to '/schools'
+    if school.save
+      redirect_to "/schools"
+    else
+      flash[:notice] = "School not created: Required information missing."
+      render :new
+    end
   end
 
   def edit
@@ -61,10 +64,14 @@ class SchoolsController < ApplicationController
   def create_teacher
     school = School.find(params[:id])
     teachers = school.teachers
-    new_teacher = teachers.create!(teacher_params)
+    new_teacher = teachers.create(teacher_params)
 
-    new_teacher.save
-    redirect_to "/schools/#{school.id}/teachers"
+    if new_teacher.save
+      redirect_to "/schools/#{school.id}/teachers"
+    else
+      flash[:notice] = "Teacher not created: Required information missing."
+      redirect_to "/schools/#{school.id}/teachers/new"
+    end
   end
 
   private

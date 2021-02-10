@@ -37,4 +37,15 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(50_000)
     end
   end
+
+  describe 'When I visit the Teacher New page and submit form' do
+    it 'Can not create Teacher without a name' do
+      school = create(:school)
+
+      visit "/schools/#{school.id}/teachers/new"
+      click_button("Create Teacher")
+      expect(page).to have_content("Teacher not created: Required information missing.")
+      expect(page).to have_button('Create Teacher')
+    end
+  end
 end
