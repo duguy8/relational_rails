@@ -28,7 +28,7 @@ class DealerInstrumentsController < ApplicationController
   end
 
   private
-  
+
   def instrument_params
     params.permit(:name, :on_sale, :brand, :price)
   end

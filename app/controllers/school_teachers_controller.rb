@@ -19,7 +19,6 @@ class SchoolTeachersController < ApplicationController
     school = School.find(params[:id])
     teachers = school.teachers
     new_teacher = teachers.create(teacher_params)
-
     if new_teacher.save
       redirect_to "/schools/#{school.id}/teachers"
     else

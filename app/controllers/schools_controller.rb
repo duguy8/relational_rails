@@ -35,7 +35,6 @@ class SchoolsController < ApplicationController
   def update
     school = School.find(params[:id])
     school.update(school_params)
-
     school.save
     redirect_to "/schools/#{school.id}"
   end

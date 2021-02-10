@@ -4,7 +4,6 @@
 <h1><%= @dealer.name %></h1>
 
 <h3><strong>All Inventory</strong></h3>
-
 <%= form_tag("/dealers/#{@dealer.id}/instruments", method: "get") do %>
   <%= label_tag(:amount, "Filter by Price - Greater Than:") %>
   <%= text_field_tag(:amount) %>
@@ -12,8 +11,8 @@
 <% end %>
 
 <p><%= link_to "Sort Instruments by Name", "/dealers/#{@dealer.id}/instruments?param1=sort" %></p>
-
 <p><%= link_to "Clear Filter", "/dealers/#{@dealer.id}/instruments" %></p>
+<p><%= link_to "Create Instrument", "/dealers/#{@dealer.id}/instruments/new" %></p>
 
 <% @instruments.each do |instrument| %>
   <p><strong>Name: </strong><%= instrument.name %></p>
@@ -23,5 +22,3 @@
   <p><%= link_to "Update Instrument", "/instruments/#{instrument.id}/edit" %></p>
   <p><%= link_to "Delete Instrument", "/instruments/#{instrument.id}", method: :delete %></p>
 <% end %>
-
-<p><%= link_to "Create Instrument", "/dealers/#{@dealer.id}/instruments/new" %></p>

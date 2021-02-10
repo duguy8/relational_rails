@@ -19,7 +19,6 @@ class TeachersController < ApplicationController
   def update
     teacher = Teacher.find(params[:id])
     teacher.update(teacher_params)
-
     teacher.save
     redirect_to "/teachers/#{teacher.id}"
   end
@@ -28,7 +27,6 @@ class TeachersController < ApplicationController
     teacher = Teacher.find(params[:id])
     school = teacher.school
     teacher.destroy
-
     redirect_to "/schools/#{school.id}/teachers"
   end
 

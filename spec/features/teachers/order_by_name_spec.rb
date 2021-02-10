@@ -10,7 +10,7 @@ RSpec.describe 'As a visitor' do
     end
   end
 
-  describe 'After clicking link Im taken to Schools Teacher index page'
+  describe 'After clicking link Im taken to Schools Teacher index page' do
     it 'Shows all Teachers in Alphabetical Order' do
       school = create(:school, id: 1)
       teacher_1 = create(:teacher, name: 'B', school_id: 1)
@@ -22,5 +22,6 @@ RSpec.describe 'As a visitor' do
       expect(teacher_3.name).to appear_before(teacher_2.name)
       expect(teacher_3.name).to appear_before(teacher_2.name)
       expect(teacher_3.name).to appear_before(teacher_1.name)
+    end
   end
 end

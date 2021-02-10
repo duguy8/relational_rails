@@ -29,6 +29,7 @@ RSpec.describe 'As a visitor' do
       visit "/schools/#{school_1.id}"
       expect(page).to have_link('Delete School')
     end
+    
     it 'When I click the link "Delete School"' do
       school_1 = create(:school)
 

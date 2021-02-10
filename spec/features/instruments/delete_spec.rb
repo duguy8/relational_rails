@@ -9,6 +9,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_link("Delete Instrument")
     end
   end
+  
   describe "When I click the link" do
     it "Instrument is deleted and redirected to Instrument index page" do
       guitar1 = create(:instrument)
