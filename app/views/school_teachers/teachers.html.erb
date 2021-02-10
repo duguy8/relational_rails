@@ -12,7 +12,6 @@
 
 <p><%= link_to "Sort Teachers by Name", "/schools/#{@school.id}/teachers?sort=by_name" %></p>
 <p><%= link_to "Clear Filter", "/schools/#{@school.id}/teachers" %></p>
-
 <p><%= link_to "Create Teacher", "/schools/#{@school.id}/teachers/new" %></p><hr>
 
 <% @teachers.each do |teacher| %>

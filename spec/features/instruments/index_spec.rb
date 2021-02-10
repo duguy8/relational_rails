@@ -39,6 +39,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(guitar.price)
     end
   end
+
   describe 'As a visitor on the Instrument Index page'do
     it 'Has a form with an input number value' do
       guitar = create(:instrument, on_sale: true)
@@ -48,6 +49,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(guitar.name)
       expect(page).to have_button("Find Instruments")
     end
+    
     it 'Returns Instruments greater than $100 back on the current instrument page' do
       dealer1 = create(:dealer, id: 1)
       guitar = create(:instrument, price: 1000, dealer_id: 1)

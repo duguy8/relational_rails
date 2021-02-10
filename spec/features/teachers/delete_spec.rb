@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'See a link to delete next to each Teacher' do
     it 'Has link on Teacher Index page' do
-    school = create(:school, id: 1)
-    teacher_1 = create(:teacher, school_id: 1, college_graduate: true, name: "SHS")
+      school = create(:school, id: 1)
+      teacher_1 = create(:teacher, school_id: 1, college_graduate: true, name: "SHS")
 
-    visit "/teachers"
-    expect(page).to have_content(teacher_1.name)
-    expect(page).to have_link("Delete Teacher")
-
+      visit "/teachers"
+      expect(page).to have_content(teacher_1.name)
+      expect(page).to have_link("Delete Teacher")
     end
 
     it 'Has link on School Teacher Index' do
@@ -66,6 +65,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_link("Delete Teacher")
     end
   end
+  
   describe "When I click the link" do
     it "Teacher is deleted and redirected to Teacher index page" do
       teacher_1 = create(:teacher)

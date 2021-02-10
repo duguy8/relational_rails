@@ -10,7 +10,7 @@ RSpec.describe 'As a visitor' do
     end
   end
 
-  describe 'After clicking link Im taken to Dealers Instrument index page'
+  describe 'After clicking link Im taken to Dealers Instrument index page' do
     it 'Shows all Instruments in Alphabetical Order' do
       dealer = create(:dealer, id: 1)
       mic = create(:instrument, name: 'Mic', dealer_id: 1)
@@ -22,5 +22,6 @@ RSpec.describe 'As a visitor' do
       expect(bass.name).to appear_before(mic.name)
       expect(mic.name).to appear_before(shaker.name)
       expect(bass.name).to appear_before(shaker.name)
+    end
   end
 end

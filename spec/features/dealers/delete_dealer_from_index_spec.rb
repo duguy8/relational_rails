@@ -19,6 +19,6 @@ RSpec.describe 'As a visitor' do
       click_link("Delete Dealer")
       expect(current_path).to eq("/dealers")
       expect(page).not_to have_content(dealer1.name)
-      end
     end
   end
+end

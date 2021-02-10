@@ -1,7 +1,6 @@
 <p><%= link_to "View All Dealers", "/dealers" %></p>
 <p><%= link_to "View All Instruments", "/instruments" %></p>
 
-
 <%= form_with(url: "/dealers/#{@dealer.id}", method: "patch", local: true) do |f| %>
   <h3><%= f.label "Edit" %></h3>
     <p><%= f.label "Name: " %></p>
@@ -14,6 +13,5 @@
     <p><%= f.text_field :city, value: "#{@dealer.city}" %></p><br>
     <p><%= f.label "State: " %></p>
     <p><%= f.text_field :state, value: "#{@dealer.state}" %></p><br>
-
     <%= f.submit "Update Dealer" %>
 <% end  %>
