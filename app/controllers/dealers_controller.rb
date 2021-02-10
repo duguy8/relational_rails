@@ -32,9 +32,12 @@ class DealersController < ApplicationController
 
   def create
     dealer = Dealer.new(dealer_params)
-
-    dealer.save
-    redirect_to "/dealers"
+    if dealer.save
+      redirect_to "/dealers"
+    else
+      flash[:notice] = "Dealer not created: Required information missing."
+      render :new
+    end
   end
 
   def edit
@@ -62,9 +65,13 @@ class DealersController < ApplicationController
   def create_instrument
     dealer = Dealer.find(params[:id])
     instruments = dealer.instruments
-    new = instruments.create!(instrument_params)
-    new.save
-    redirect_to "/dealers/#{dealer.id}/instruments"
+    new = instruments.create(instrument_params)
+    if new.save
+      redirect_to "/dealers/#{dealer.id}/instruments"
+    else
+      flash[:notice] = "Instrument not created: Required information missing."
+      redirect_to "/dealers/#{dealer.id}/instruments"
+    end
   end
 
   private
