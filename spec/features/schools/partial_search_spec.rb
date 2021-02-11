@@ -53,5 +53,19 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(teacher_1.name)
       expect(page).to have_content(teacher_3.name)
     end
+
+    it "Only shows partial match records on the page edge case" do
+      school = create(:school, id: 1)
+      teacher_1 = create(:teacher, name: "Super sweet teacher", school_id: 1, college_graduate: true)
+      teacher_2 = create(:teacher, name: "Dat teacher", school_id: 1, college_graduate: true)
+      teacher_3 = create(:teacher, name: "Sweet teacher", school_id: 1, college_graduate: true)
+
+      visit "/teachers"
+      fill_in :search, :with => "Dat teacher"
+      click_button("Search")
+      expect(page).not_to have_content(teacher_3.name)
+      expect(page).not_to have_content(teacher_1.name)
+      expect(page).to have_content(teacher_2.name)
+    end
   end
 end
