@@ -4,7 +4,9 @@ class SchoolsController < ApplicationController
       @schools = School.order_by_teacher_count
     elsif params[:search]
       @schools = School.search(params[:search])
-      @schools = School.partial_search(params[:search])
+      if @schools.empty?
+        @schools = School.partial_search(params[:search])
+      end  
     else
       @schools = School.all.order_by_created_at
     end

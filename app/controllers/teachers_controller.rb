@@ -2,7 +2,9 @@ class TeachersController < ApplicationController
   def index
     if params[:search]
       @teachers = Teacher.search(params[:search])
-      @teachers = Teacher.partial_search(params[:search])
+      if @teachers.empty?
+        @teachers = Teacher.partial_search(params[:search])
+      end
     else
       @teachers = Teacher.all.college_graduates
     end

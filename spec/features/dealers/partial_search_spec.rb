@@ -53,5 +53,19 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(guitar.name)
       expect(page).to have_content(drums.name)
     end
+
+    it "Only shows partial match records on the page edge case" do
+      dealer = create(:dealer, id: 1)
+      guitar = create(:instrument, name: "Super sweet guitar", dealer_id: 1, on_sale: true)
+      bass = create(:instrument, name: "Dat bass1", dealer_id: 1, on_sale: true)
+      not_super_sweet = create(:instrument, name: "Sweet guitar", dealer_id: 1, on_sale: true)
+
+      visit "/instruments"
+      fill_in :search, :with => "Sweet guitar"
+      click_button("Search")
+      expect(page).not_to have_content(guitar.name)
+      expect(page).not_to have_content(bass.name)
+      expect(page).to have_content(not_super_sweet.name)
+    end
   end
 end

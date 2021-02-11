@@ -4,7 +4,9 @@ class DealersController < ApplicationController
       @dealers = Dealer.sort_by_instruments
     elsif params[:search]
       @dealers = Dealer.search(params[:search])
-      @dealers = Dealer.partial_search(params[:search])
+      if @dealers.empty?
+        @dealers = Dealer.partial_search(params[:search])
+      end  
     else
       @dealers = Dealer.order_by_created_at
     end

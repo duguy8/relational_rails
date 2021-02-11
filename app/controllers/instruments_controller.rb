@@ -2,7 +2,9 @@ class InstrumentsController < ApplicationController
   def index
     if params[:search]
       @instruments = Instrument.search(params[:search])
-      @instruments = Instrument.partial_search(params[:search])
+      if @instruments.empty?
+        @instruments = Instrument.partial_search(params[:search])
+      end
     else
       @instruments = Instrument.all_on_sale
     end
